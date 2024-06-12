@@ -1,0 +1,36 @@
+Turtle and Piggy are playing a number game.
+
+First, Turtle will choose an integer 𝑥
+, such that 𝑙≤𝑥≤𝑟
+, where 𝑙,𝑟
+ are given. It's also guaranteed that 2𝑙≤𝑟
+.
+
+Then, Piggy will keep doing the following operation until 𝑥
+ becomes 1
+:
+
+Choose an integer 𝑝
+ such that 𝑝≥2
+ and 𝑝∣𝑥
+ (i.e. 𝑥
+ is a multiple of 𝑝
+).
+Set 𝑥
+ to 𝑥𝑝
+, and the score will increase by 1
+.
+The score is initially 0
+. Both Turtle and Piggy want to maximize the score. Please help them to calculate the maximum score.
+
+Input
+Each test contains multiple test cases. The first line contains the number of test cases 𝑡
+ (1≤𝑡≤104
+). The description of the test cases follows.
+
+The first line of each test case contains two integers 𝑙,𝑟
+ (1≤𝑙≤𝑟≤109,2𝑙≤𝑟
+) — The range where Turtle can choose the integer from.
+
+Output
+For each test case, output a single integer — the maximum score.

@@ -1,0 +1,32 @@
+There is a sequence 𝑎0,𝑎1,𝑎2,…
+ of infinite length. Initially 𝑎𝑖=𝑖
+ for every non-negative integer 𝑖
+.
+
+After every second, each element of the sequence will simultaneously change. 𝑎𝑖
+ will change to 𝑎𝑖−1∣𝑎𝑖∣𝑎𝑖+1
+ for every positive integer 𝑖
+. 𝑎0
+ will change to 𝑎0∣𝑎1
+. Here, |
+ denotes bitwise OR.
+
+Turtle is asked to find the value of 𝑎𝑛
+ after 𝑚
+ seconds. In particular, if 𝑚=0
+, then he needs to find the initial value of 𝑎𝑛
+. He is tired of calculating so many values, so please help him!
+
+Input
+Each test contains multiple test cases. The first line contains the number of test cases 𝑡
+ (1≤𝑡≤104
+). The description of the test cases follows.
+
+The first line of each test case contains two integers 𝑛,𝑚
+ (0≤𝑛,𝑚≤109
+).
+
+Output
+For each test case, output a single integer — the value of 𝑎𝑛
+ after 𝑚
+ seconds.

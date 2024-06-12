@@ -1,0 +1,44 @@
+Today, Cat and Fox found an array 𝑎
+ consisting of 𝑛
+ non-negative integers.
+
+Define the loneliness of 𝑎
+ as the smallest positive integer 𝑘
+ (1≤𝑘≤𝑛
+) such that for any two positive integers 𝑖
+ and 𝑗
+ (1≤𝑖,𝑗≤𝑛−𝑘+1
+), the following holds:
+𝑎𝑖|𝑎𝑖+1|…|𝑎𝑖+𝑘−1=𝑎𝑗|𝑎𝑗+1|…|𝑎𝑗+𝑘−1,
+where 𝑥|𝑦
+ denotes the bitwise OR of 𝑥
+ and 𝑦
+. In other words, for every 𝑘
+ consecutive elements, their bitwise OR should be the same. Note that the loneliness of 𝑎
+ is well-defined, because for 𝑘=𝑛
+ the condition is satisfied.
+
+Cat and Fox want to know how lonely the array 𝑎
+ is. Help them calculate the loneliness of the found array.
+
+Input
+Each test consists of multiple test cases. The first line contains a single integer 𝑡
+ (1≤𝑡≤104
+) — the number of test cases. The description of the test cases follows.
+
+The first line of each test case contains one integer 𝑛
+ (1≤𝑛≤105
+) — the length of the array 𝑎
+.
+
+The second line of each test case contains 𝑛
+ integers 𝑎1,𝑎2,…,𝑎𝑛
+ (0≤𝑎𝑖<220
+) — the elements of the array.
+
+It is guaranteed that the sum of 𝑛
+ over all test cases doesn't exceed 105
+.
+
+Output
+For each test case, print one integer  — the loneliness of the given array.

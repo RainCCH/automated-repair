@@ -1,0 +1,25 @@
+You are given two integers 𝑥
+ and 𝑦
+.
+
+Output two integers: the minimum of 𝑥
+ and 𝑦
+, followed by the maximum of 𝑥
+ and 𝑦
+.
+
+Input
+The first line contains a single integer 𝑡
+ (1≤𝑡≤100
+) — the number of test cases.
+
+The only line of each test case contains two space-separated integers 𝑥
+ and 𝑦
+ (0≤𝑥,𝑦≤9
+).
+
+Output
+For each test case, output two integers: the minimum of 𝑥
+ and 𝑦
+, followed by the maximum of 𝑥
+ and 𝑦
