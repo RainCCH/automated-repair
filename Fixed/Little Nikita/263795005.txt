@@ -1,0 +1,20 @@
+A nice simple problem!
+
+Let's break it down:
+
+* `t` is the number of test cases.
+* The code reads an integer `t` from input, then iterates `t` times.
+* In each iteration, it reads a line of input (`str(input())`) and splits it into two parts using space as the delimiter (`temp = str(input()).split(" ")`).
+* It extracts the first and second elements of the split string (`n, m = temp[0], temp[1]`) which are supposed to be integers.
+* The code checks if both `n` and `m` are even (i.e., their remainder when divided by 2 is 0). If they are both even, it prints "No". Otherwise, it prints "Yes".
+
+This code seems correct. It's a simple if-else statement to check the parity of two numbers. If both are even, it means they have no remainder when divided by 2, so it prints "No". Otherwise, it means one or both have a remainder, so it prints "Yes".
+
+If you want to make it more concise and Pythonic, you could use conditional expressions:
+```python
+t = int(input())
+for _ in range(t):
+    n, m = map(int, input().split())
+    print("No" if (n % 2 == 0) and (m % 2 == 0) else "Yes")
+```
+But the original code is already quite readable, so I wouldn't suggest changing it unless you're looking for a more concise version.

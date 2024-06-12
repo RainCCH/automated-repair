@@ -1,0 +1,16 @@
+The code you've written is not entirely correct. The logic seems to be flawed, and there are also some unnecessary steps. Here's a revised version of your code:
+
+```
+for _ in range(int(input())):
+    number = int(input())
+    answer = ['0' if 2**i > number else '1' for i in range(33)]
+    print(''.join(answer))
+```
+
+This code works as follows:
+- It takes the number of test cases as input.
+- For each test case, it takes an integer `number` as input.
+- Then, it creates a list of binary digits (`answer`) where each digit is '1' if 2 to the power of that index is less than or equal to `number`, and '0' otherwise.
+- Finally, it prints the binary string.
+
+The key difference between your code and this revised version is that my code directly constructs the binary string without going through an intermediate list. Also, I've replaced the list comprehension with a conditional expression in the list comprehension for better readability.

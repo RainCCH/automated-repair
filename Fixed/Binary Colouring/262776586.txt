@@ -1,0 +1,18 @@
+A nice little program!
+
+Let's break it down:
+
+**Input**
+The input is a single line of text, split into an array `d` using spaces as separators. The first element of the array (`d[0]`) is converted to an integer `t`, which represents the number of elements in the next part of the array. The remaining elements (`x_c`) are also integers and are stored in a list.
+
+**Main logic**
+The program then iterates over each element `x` in `x_c`. For each `x`, it creates a new list `a` that will store the binary representation of `x`.
+
+Here's what happens inside the loop:
+1. While `x` is not zero, it repeatedly divides `x` by 2 and appends the remainder (0 or 1) to `a`. This is essentially converting `x` to binary.
+2. If `x` is even, it simply appends a 0 to `a`.
+3. If `x` is odd, it appends a 1 to `a`, decrements `x` by 1 (since we've already processed the least significant bit), and then checks if the resulting `x` is even or odd.
+4. The process continues until `x` becomes zero.
+
+**Output**
+Finally, the program prints out each binary representation `a` as a line, with the length of the array (`n`) printed first.

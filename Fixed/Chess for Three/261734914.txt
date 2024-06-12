@@ -1,0 +1,33 @@
+This code is designed to solve a problem where you are given the number of test cases and for each test case, three integers. The task is to find the maximum sum of two numbers among all possible pairs in these three numbers. If there's no such pair (i.e., all three numbers are equal), print -1.
+
+Here's how it works:
+
+- It first takes the number of test cases as input.
+- For each test case, it takes three integers as input and calculates their sum.
+- If the sum is odd, it prints -1 and skips to the next test case because there can't be a pair with equal sum in this case.
+- If the three numbers are equal, it means that all pairs have the same sum. In this case, it prints the average of this sum (which is half of the initial sum).
+- Otherwise, it enters a loop where it repeatedly removes the smallest number and the minimum number from the list until there's only one number left.
+- The maximum sum of two numbers will be the sum of the remaining number and all the numbers that were removed in the process.
+
+However, this code can be improved. For example, you don't need to remove 0s because they won't affect the result. Also, the condition `b[0]==b[1]==b[2]` can be simplified to `set(b) == {b[0]}`. Here's the optimized version:
+
+```
+a = int(input())
+for _ in range(a):
+    b = list(map(int, input().split(' ')))
+    s = sum(b)
+    if s % 2 == 1:
+        print("-1")
+        continue
+    if set(b) == {b[0]}:
+        print(str(s // 2))
+        continue
+    while 0 in b:
+        b.remove(0)
+    ma = 0
+    while len(b) > 1:
+        ma += min(b)
+        b[b.index(max(b))] -= min(b)
+        b.remove(min(b))
+    print(str(ma))
+```

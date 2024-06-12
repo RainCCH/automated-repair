@@ -1,0 +1,12 @@
+This is a solution to a problem that involves manipulating bits in binary numbers. The problem seems to be related to compressing or decompressing runs of ones in a binary number.
+
+Here's how the code works:
+
+- It first reads an integer `t` from input, which represents the number of test cases.
+- For each test case, it reads another integer `x`, which is the binary number to be processed.
+- It then initializes an empty list `ans` to store the bits of `x`.
+- The code loops through each bit of `x` (from least significant to most significant), and appends 1 if the bit is set (i.e., 1), or 0 if it's not.
+- After that, it enters a loop where it checks for runs of ones in `ans`. When a run is found, it marks the start and end of the run, then sets all bits between them to zero.
+- Finally, it prints out the length of the remaining sequence (i.e., the number of ones at the end) and the sequence itself.
+
+The output format seems to be designed for readability. The first line of output is the length of the compressed binary sequence, followed by the sequence itself with spaces separating the bits.

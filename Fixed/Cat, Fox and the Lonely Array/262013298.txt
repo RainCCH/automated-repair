@@ -1,0 +1,37 @@
+The given problem is to find the maximum length `k` of subarrays such that the bitwise OR operation on each subarray produces the same result. If no such `k` exists, return the size of the array.
+
+Here's a Python function that solves this problem:
+
+```python
+def loneliness(a):
+    n = len(a)
+    
+    # Try all possible values of k
+    for k in range(1, n+1):
+        # Check if the condition is satisfied for all subarrays of length k
+        satisfied = True
+        target = a[0] | a[1] | ... | a[k-1]
+        for i in range(n-k+1):
+            if a[i] | a[i+1] | ... | a[i+k-1] != target:
+                satisfied = False
+                break
+        
+        if satisfied:
+            return k
+    
+    # If no value of k satisfies the condition, return n
+    return n
+
+# Read input
+t = int(input())
+for _ in range(t):
+    n = int(input())
+    a = [int(x) for x in input().split()]
+    print(loneliness(a))
+```
+
+This function iterates over all possible values of `k` from 1 to `n`, where `n` is the length of the array. For each value of `k`, it checks if the bitwise OR operation on each subarray of length `k` produces the same result as the target. If a value of `k` satisfies this condition, the function returns that value. If no such `k` exists, the function returns the size of the array.
+
+The time complexity of this function is O(n^2), where `n` is the length of the input array. This is because the function iterates over all possible values of `k`, and for each value of `k`, it checks if the condition is satisfied by iterating over all subarrays of length `k`. The space complexity is O(1), as the function only uses a constant amount of space to store its variables.
+
+Note that this function assumes that the input array contains only 0s and 1s. If the input array can contain other values, the function may not work correctly.

@@ -1,0 +1,41 @@
+A nice problem!
+
+Let's break it down:
+
+The input consists of two parts: the number of rounds `rounds` and the number of players `n`.
+
+For each player, we have three scores `p1`, `p2`, and `p3`. The rules are:
+
+1. If the sum of any two players' scores is equal to the third player's score, the game ends.
+2. If the total score of all three players is even, the winner is the one with the highest average score (i.e., `(p1+p2+p3)//2`).
+3. Otherwise, if the total score is odd, there is no winner.
+
+Here are some observations:
+
+* The sum of any two players' scores must be an integer (since they're all integers). This means that `(p1+p2+p3)` must also be an integer.
+* If `(p1+p2+p3)` is even, then we can check if the average score is at least the third player's score. If it is, then the winner is the one with the highest average score.
+
+Now, let's modify your code to make it more efficient and readable:
+
+```python
+rounds = int(input())
+n = int(input())
+
+for _ in range(n):
+    p1, p2, p3 = map(int, input().split())
+    
+    if (p1+p2+p3) % 2 != 0:
+        print(-1)
+    else:
+        avg = (p1+p2+p3)//2
+        winner = max(p1, p2, p3)
+        
+        if avg >= winner:
+            print(avg)
+        else:
+            print(winner)
+```
+
+We've removed the unnecessary `results` list and simplified the conditions. We also used a more readable way to find the maximum score (using `max`) instead of writing it out explicitly.
+
+Give this code a try, and let me know if you have any questions or need further clarification!

@@ -1,0 +1,23 @@
+This is a Python script that checks whether a given password meets certain criteria. Here's a breakdown of what the code does:
+
+1. The `check` function takes two arguments: `num`, which represents the length of the password, and `pwd`, which is the actual password.
+2. The function initializes two boolean variables: `a` and `b`, both set to `False`. It also initializes two counters: `count1` and `count2`, both set to 0.
+3. The function uses a while loop to iterate through the password, starting from the second character (since the first character is not checked). The loop continues until it reaches the last character minus one (since we're comparing adjacent characters).
+4. Inside the loop, the code checks two conditions:
+	* If the difference between the ASCII values of the current character and the previous character is negative (`ord(pwd[i-1])-ord(pwd[i])<0`), then `a` is set to `True`.
+	* If the difference between the ASCII values of the current character and the next character is greater than 30, then there's a digit after an alphabet, and the function returns `False`.
+5. The loop continues until it reaches the last character minus one.
+6. After the loop, the code checks two more conditions:
+	* If `count1` (which keeps track of the number of alphabets) is less than or equal to 1, then `a` is set to `True`.
+	* If `count2` (which keeps track of the number of digits) is less than or equal to 1, then `b` is set to `True`.
+7. The function returns a boolean value indicating whether both conditions (`a` and `b`) are true.
+
+The main part of the script uses a loop to read input from the user and call the `check` function for each password. If the function returns `True`, it prints "YES", otherwise it prints "NO".
+
+Some observations about the code:
+
+* The ASCII value range used in the first while loop (`ord(pwd[i])<58 and ord(pwd[i])>46`) suggests that the code is checking for passwords containing only alphanumeric characters (letters and digits).
+* The second while loop checks for adjacent characters with a large difference in ASCII values, which might indicate a digit after an alphabet.
+* The final conditions check whether there are at most one alphabet and one digit in the password.
+
+Overall, this script appears to be implementing a custom password validation rule.

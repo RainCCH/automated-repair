@@ -1,0 +1,15 @@
+This is a Python program that calculates the `n`-th element of a sequence after `m` iterations of a specific transformation. The sequence starts with the natural numbers (0, 1, 2, ...).
+
+Here's a breakdown of the code:
+
+1. The `get_an` function takes two integers `n` and `m` as input.
+2. It initializes an array `a` with the first `n+1` natural numbers.
+3. For each of the `m` iterations, it updates the elements of the sequence using a bitwise OR operation (`|`) between consecutive elements, wrapping around to the beginning of the sequence when necessary (i.e., `a[i] = a[i-1] | a[i] | a[i+1]`). The first element is updated separately by taking the bitwise OR with the second element.
+4. Finally, the function returns the value of the `n`-th element (`a[n]`) after `m` iterations.
+
+The main part of the program reads the number of test cases `t` from input, and then processes each test case by:
+1. Reading the values of `n` and `m` as separate integers.
+2. Calling the `get_an` function with these values.
+3. Printing the result.
+
+Note that this implementation assumes that the bitwise OR operation is performed between elements in the sequence, which might not be the intended behavior if you're looking for a different transformation rule.

@@ -1,0 +1,12 @@
+This code appears to be a solution for the problem of converting binary numbers into Gray codes. 
+
+The Gray code is a sequence of binary numbers where each number differs from the previous one by only one bit. The code starts with 0 and then alternates between incrementing and decrementing the binary representation.
+
+Here's how your code works:
+
+- It first takes an integer input, which represents the number of binary numbers to generate.
+- Then for each binary number, it converts the binary representation into a list of bits (where '1' is represented as '1' and '0' as '0').
+- For each pair of consecutive bits that are both '1', or both '0', it toggles the first bit in the sequence to '1' and the second bit to '0'. If this operation creates a leading '1', it adds '1' at the beginning of the list.
+- Finally, it prints the length of the Gray code sequence and the Gray code itself in reverse order (since binary numbers are typically read from right to left).
+
+This code correctly generates the Gray code sequence for each input. However, without proper formatting, it might be difficult to understand how your code works or debug any issues that may arise.

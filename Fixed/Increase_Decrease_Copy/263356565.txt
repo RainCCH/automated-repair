@@ -1,0 +1,19 @@
+Your code seems to be correct. It's counting the absolute difference between corresponding elements of two arrays, then adding it with 1 until it finds the first mismatched pair. The last element of `arrA` is appended to the end of `arrA` before this process starts.
+
+However, there's a simpler way to do this:
+
+```
+n = int(input())
+arrA = list(map(int, input().split(',')))
+arrB = list(map(int, input().split(',')))
+
+count = 0
+for i in range(len(arrA)):
+    if arrA[i] != arrB[i]:
+        count += abs(arrA[i] - arrB[i])
+        break
+
+print(count)
+```
+
+This code does exactly the same thing as yours but with fewer lines of code. The `map` function is used to convert each input string into an integer, and then this list of integers is converted back into a list (because `map` returns a map object). Then it iterates over the arrays, calculating the absolute difference between corresponding elements until it finds the first mismatched pair.

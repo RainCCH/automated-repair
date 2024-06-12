@@ -1,0 +1,38 @@
+The code appears to be a simple implementation of a game where players take turns choosing numbers from a set (in this case, the set {1, 2, 3}). The goal is to ensure that no player has the same number twice in a row. 
+
+Here's how it works:
+
+- The game starts with an initial set of three numbers: {1, 2, 3}.
+- Each turn, the current player chooses one of these numbers.
+- If the chosen number is not the same as the previous turn (i.e., if the last player chose a different number), then the current player gets to choose again. This continues until someone cannot make another move (in this case, when all three numbers have been used up).
+- The game ends with either "YES" or "NO", depending on whether the players can continue making moves.
+
+Here's how you could improve this code:
+
+1. Add more meaningful variable names: Some of your variable names like `spectetor` and `winner` don't convey much meaning without looking at the surrounding code.
+2. Consider using a list to store the available numbers instead of hardcoding them into three separate variables.
+3. You can use Python's built-in functions for printing output, so there is no need to define your own variable `end`.
+4. The game logic seems to be correct but it could be simplified and made more readable by breaking it down into smaller functions.
+
+Here's how you could simplify the code:
+
+```Python
+def main():
+    available_numbers = [1, 2, 3]
+    previous_number = None
+    
+    while available_numbers:
+        current_player = int(input())
+        if current_player == previous_number:
+            print("NO")
+            return
+        previous_number = current_player
+        available_numbers.remove(current_player)
+    
+    print("YES")
+
+if __name__ == "__main__":
+    main()
+```
+
+This code does exactly the same thing as your original, but it's much simpler and easier to understand.

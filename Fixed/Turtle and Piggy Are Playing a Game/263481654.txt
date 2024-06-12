@@ -1,0 +1,19 @@
+The code is intended to calculate the maximum possible score for each test case. The test cases are given as a list of tuples `test_cases`, where each tuple contains two integers `l` and `r`. The function `max_score(t, test_cases)` calculates the maximum possible score for each test case by trying different values of `x` from `r` down to 1.
+
+Here is how it works:
+
+- It starts by setting `max_x` to `r` (the right boundary) and `score` to 0.
+- Then it enters a while loop that continues until `max_x` becomes less than or equal to 1. In each iteration of the loop, it tries to divide `max_x` by increasing values of `p` starting from 2 up to `max_x`. 
+- If `max_x` is divisible by `p`, it divides `max_x` by `p`, increments the score by 1 and breaks out of the inner for loop.
+- Once `max_x` becomes less than or equal to 1, it moves on to the next test case.
+
+However, there seems to be a missing variable `t` in the function definition. It is expected that `t` should be an integer which represents the total number of test cases. But based on the given code, it does not seem to have any effect on the calculation.
+
+Here's how you can use this function:
+
+```
+test_cases = [(10, 15), (20, 25)]
+results = max_score(0, test_cases)
+for result in results:
+    print(result)
+```

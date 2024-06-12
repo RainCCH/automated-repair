@@ -1,0 +1,26 @@
+This is a Python program that solves a problem related to parity of numbers. The program takes an integer `t` as input, which represents the number of test cases. For each test case, it takes three integers `n`, `m` as input, and checks whether the statement "if (m+n) % 2 == 0 and m > n then print YES else print NO" is true or not.
+
+Here's a breakdown of how the program works:
+
+1. The outer while loop runs for `t` iterations.
+2. In each iteration, the function `solve()` is called.
+3. Within the `solve()` function:
+	* Three integers `n`, `m` are taken as input using `int(input())`.
+	* The expression `(m+n) % 2` calculates the remainder of the sum of `m` and `n` when divided by 2.
+	* If the result is 0 (i.e., the sum has even parity) and `m` is greater than `n`, then print "YES". Otherwise, print "NO".
+
+The logic behind this program is based on the property that if the sum of two numbers has even parity, then one of them must have odd parity. In this case, we check whether the condition `(m+n) % 2 == 0` holds true and whether `m` is greater than `n`. If both conditions are met, then the statement "YES" is printed; otherwise, "NO" is printed.
+
+Here's an example input and output to demonstrate how this program works:
+
+Input:
+```
+2
+4 3
+1 2
+```
+Output:
+```
+YES
+NO
+```

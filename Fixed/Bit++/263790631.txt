@@ -1,0 +1,19 @@
+This code is supposed to count the number of strings that start with "+", but there's a problem. The variable `X` (which should be `x`) is not defined, so when you try to subtract from it (`X -= 1`), Python will throw an error.
+
+Here's the corrected version:
+
+```python
+n = int(input())
+x = 0
+for i in range(n):
+    st = input()
+    if st[0] == "+":
+        x += 1
+    else:
+        x -= 1
+print(x)
+```
+
+This code works by iterating over `n` strings. For each string, it checks the first character (`st[0]`). If the first character is "+", it increments the count `x`. Otherwise, it decrements the count. Finally, it prints the total count.
+
+Note that I also changed `X -= 1` to `x -= 1`, as you should be updating the same variable `x` throughout the loop.

@@ -1,0 +1,29 @@
+This code is designed to solve a problem where you are given the size of an array `n` and then you need to generate all pairs of numbers from 1 to `n//2 + 1` and their corresponding complements (i.e., `n+1 - x`). 
+
+Here's how it works:
+
+- It first takes an integer `n` as input, which represents the size of the array.
+- Then, it initializes an empty list `q`.
+- The outer loop runs from 1 to `n//2 + 1`. In each iteration, it appends the current number `x` and its complement `n+1-x` to the list `q`.
+- Finally, it prints all elements in the list `q`.
+
+Note that this code assumes that the input array size is even. If the array size is odd, you might need to handle this case separately.
+
+Here's how you can improve this code:
+
+- You can simplify the printing part by using a single print statement with multiple arguments.
+- You don't need to iterate over the entire list `q` to print its elements. You can directly print all elements in one go.
+- The variable names could be more descriptive. For example, instead of `p`, you could use `numbers`.
+- The outer loop variable name could also be more descriptive.
+
+Here's how you can improve this code:
+
+```Python
+for _ in range(int(input())):
+    n = int(input())
+    numbers = list(map(int,input().split()))
+    for x in range(1,(n+1)//2):
+        print(x, n-x+1, end=' ')
+    print()
+```
+This version of the code does exactly the same thing as your original code but is a bit more readable and maintainable.

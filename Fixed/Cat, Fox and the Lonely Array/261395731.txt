@@ -1,0 +1,12 @@
+This is a Python solution for the problem of finding the maximum gap between two consecutive ones in a binary array. The binary array is given as input, and the program should output the maximum gap.
+
+Here's how it works:
+
+1. It first reads the number of test cases (tc). Then for each test case:
+2. It initializes an array `prev_position` to keep track of the previous position of ones in the binary array.
+3. It also initializes another array `pos_diff` to store the difference between current and previous positions of ones.
+4. It reads the number of elements (n) in the binary array, then reads the array itself from input.
+5. For each element in the array, it checks which bits are set (i.e., 1). If a bit is set, it updates `pos_diff` with the maximum difference between current and previous positions for that bit, and also updates `prev_position` with the current position.
+6. Then it goes through the array again to find the maximum gap by updating each element in `pos_diff` with the maximum of its current value and the length of the array minus its previous position. It keeps track of the maximum gap found so far (`ans`) and prints it at the end.
+
+The time complexity is O(n), where n is the number of elements in the binary array, because we are iterating over the array twice: once to update `prev_position` and `pos_diff`, and again to find the maximum gap. The space complexity is also O(n) for the same reason.

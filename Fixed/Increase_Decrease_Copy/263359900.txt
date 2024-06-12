@@ -1,0 +1,50 @@
+There are several issues with your code:
+
+1. The `n` variable is not used anywhere, so you can remove the `input()` function and just use a fixed value for testing.
+
+2. You are using `l1s-l2s[j]` which will give a TypeError because `-` operator is not defined for lists and integers. I think you meant to calculate the absolute difference between the two lists.
+
+3. The condition `if(len(l1s) != len(l2s)):` inside the while loop can be removed because it's not necessary.
+
+4. You are modifying the `l1s` list inside the while loop which can lead to unexpected results. Instead, you should create a new list and append elements from both lists in each iteration of the while loop.
+
+5. The condition `if(l1s[j] != l2s[k]):` is not necessary because if the two lists are not equal, it will be caught by the `else` block. So, you can remove this condition as well.
+
+6. You have a `while` loop that runs until `k < len(l2s)`, but in each iteration of the loop, you increment both `j` and `k`. This means that when `k` reaches the end of the list, `j` will still be pointing to an element in the list. To fix this, you should only increment `k` inside the while loop.
+
+7. You are not handling the case where the two lists are equal. You should print 0 and break out of the loop when this happens.
+
+Here's the corrected code:
+
+```Python
+n = 1
+for i in range(n):
+    p = int(input())
+    count = 0
+    l1 = list(map(int, input().split()))
+    l2 = list(map(int, input().split()))
+    if(l1 == l2):
+        print(0)
+    else:
+        l1s = []
+        l2s = []
+        j = 0
+        k = 0
+        while k < len(l2):
+            if j >= len(l1):
+                count += abs(l1[j-1] - l2[k])
+                l1s.append(l1[j-1])
+            elif l1[j] != l2[k]:
+                count += abs(l1[j] - l2[k])
+                l1s.append(l1[j])
+            else:
+                l1s.append(l1[j])
+            j += 1
+            k += 1
+        for i in range(len(l1)):
+            if l1[i] != l2[i]:
+                count += abs(l1[i] - l2[i])
+        print(count)
+```
+
+This code calculates the minimum number of operations (insertions, deletions, and substitutions) to transform one list into another. It does this by iterating over both lists simultaneously and adding up the absolute differences between corresponding elements. If an element in the first list is missing from the second, it adds the absolute difference to the count. If an element in the first list is not equal to the current element in the second list, it also adds the absolute difference to the count.

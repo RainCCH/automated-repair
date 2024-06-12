@@ -1,0 +1,19 @@
+The code you've written seems to be solving a problem where you're given the number of test cases, and then for each test case, you're given two numbers (n1 and n2). You need to find the greatest common divisor (GCD) of these two numbers. The GCD is calculated by dividing n2 by all numbers less than it until you find a number that can divide n2 without leaving a remainder.
+
+Here's how you could improve your code:
+
+```Python
+t = int(input())
+for _ in range(t):
+    n1, n2 = map(int, input().split())
+    for i in range(2, min(n1, n2) + 1):
+        if n1 % i == 0 and n2 % i == 0:
+            print(i)
+            break
+```
+
+In this code:
+
+- We're using the `map` function to convert the input strings into integers.
+- The `min` function is used with `n1` and `n2` as arguments to ensure that we don't go beyond either of these numbers in our loop. This is because the GCD cannot be greater than both n1 and n2.
+- If the number is found (i.e., if the remainder is 0), we print it and then break out of the loop using `break`.

@@ -1,0 +1,33 @@
+There are several issues with your code:
+
+1. You're trying to split the binary string into a list using `split("")`, which doesn't make sense because there's no delimiter. If you want to convert the binary string back into an integer, you should use the `int` function with base 2.
+
+2. The last part of your code is not necessary and can be removed. You're already printing the length of the binary string and then trying to split it. Just print the binary representation directly.
+
+Here's the corrected version:
+
+```
+def integer_to_binary(x):
+    if x == 0:
+        return "0"
+    
+    binary_digits = []
+    while x > 0:
+        remainder = x % 2
+        binary_digits.append(str(remainder))
+        x = x // 2
+    
+    # Reverse the list of binary digits to get the correct binary representation
+    binary_digits.reverse()
+    
+    # Join the list to form a string
+    binary_string = ''.join(binary_digits)
+    return binary_string
+
+t=int(input())
+for i in range(t):
+    x=int(input())
+    print(integer_to_binary(x))
+```
+
+This code will work correctly and print the binary representation of each input integer.

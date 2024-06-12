@@ -1,0 +1,13 @@
+The task is to generate the permutation of a given list where all elements except one are in their original order and the remaining element is moved to its correct position.
+
+Here's how this function works:
+
+- It takes two parameters: `lst` (the input list) and `m` (an integer that determines which element should be moved).
+- It first removes the first and last elements of the list, then it finds the minimum element in the remaining part.
+- The minimum element is removed from the remaining part, and the remaining part is divided into two halves. 
+- The function creates a new list (`list_min`) by concatenating the first element of the original list, the second half of the remaining part (in reverse order), and the last element of the original list.
+- It also creates another list (`list_max`) from the first half of the remaining part in ascending order.
+- Then it assigns indices to each element in the lists `list_min` and `list_max`. The function assigns the smallest index to the minimum element, then increases the index by 1 for each subsequent element in both lists.
+- Finally, the function creates a new list (`res`) where each element is replaced with its assigned index from the previous step.
+
+This approach ensures that all elements except one are in their original order and the remaining element is moved to its correct position.

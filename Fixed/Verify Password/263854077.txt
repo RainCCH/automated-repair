@@ -1,0 +1,11 @@
+This code is checking whether a given string of uppercase and lowercase letters is in valid order. The order is considered valid if the lowercase letters are in non-decreasing order (i.e., each letter is either equal to or greater than the previous one) and all uppercase letters appear consecutively.
+
+Here's how it works:
+
+1. It first takes an integer input `n`, which represents the number of test cases.
+2. For each test case, it takes a string `st` as input.
+3. It checks if the first character of the string is a lowercase letter. If it is, then `let` is set to 1; otherwise, `di` is set to 1 (denoting that the string starts with an uppercase letter).
+4. Then, it iterates over the rest of the characters in the string. 
+   - If the current character is a lowercase letter and `let` was previously 1, then it checks if the current character is greater than or equal to the previous one. If not, it sets `res` to `false`.
+   - If the current character is an uppercase letter, then it checks if `let` was previously 1 (meaning the previous character was a lowercase letter) or if the current character is less than or equal to the previous one. If either condition is true, then it sets `res` to `false`. 
+5. Finally, it prints "YES" if `res` is still `true`, meaning the string is in valid order; otherwise, it prints "NO".

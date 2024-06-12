@@ -1,0 +1,21 @@
+This code is designed to take in a series of inputs where each input consists of two integers `x` and `y`. It then prints out the sorted pair `(x, y)`.
+
+Here's how it works:
+
+1. The first line `t = int(input())` takes in an integer from the user, which represents the number of test cases they want to run.
+2. The code then enters a loop that runs `t` times. In each iteration of the loop:
+   * It takes in two more integers `x` and `y` from the user.
+   * If `x` is greater than `y`, it swaps them so that `x` is always less than or equal to `y`. This is done by setting `c = x`, then setting `x = y`, and finally setting `y = c`.
+   * It prints out the sorted pair `(x, y)`.
+
+This code can be useful for tasks where you need to process multiple test cases of a specific format. For example, if you're writing a program that sorts pairs of integers, this code could be used to test your function with different inputs.
+
+However, in Python, there's a more straightforward way to solve this problem using the built-in `sorted` function:
+
+```
+t = int(input())
+
+for i in range(t):
+  x, y = map(int, input().split())
+  print(" ".join(map(str, sorted([x, y]))))
+```

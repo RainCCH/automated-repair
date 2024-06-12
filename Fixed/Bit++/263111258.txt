@@ -1,0 +1,28 @@
+There are a few issues with your code:
+
+1. `x = o` should be `x = 0`, since you can't assign an integer value to a variable using the keyword `o`.
+2. The condition in the while loop is incorrect. You want to check if `t` is equal to 0, not not equal to 0.
+3. The variable `s` is supposed to be a string input by the user, so you can't directly compare its second character with an integer.
+
+Here's the corrected code:
+
+```python
+x = 0
+t = int(input())
+while t > 0:
+    s = input()
+    if s[1] == "+":
+        x += 1
+    elif s[1] == "-":
+        x -= 1
+print(x)
+```
+
+This code will work as follows:
+
+- It first initializes `x` to 0.
+- Then it reads an integer value `t`.
+- The while loop runs until `t` becomes 0. In each iteration of the loop, it reads a string input from the user and checks its second character (`[1]` index).
+- If the second character is "+", it increments `x` by 1.
+- If the second character is "-", it decrements `x` by 1.
+- Finally, after all inputs have been processed, it prints the value of `x`.

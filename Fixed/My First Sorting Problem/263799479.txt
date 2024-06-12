@@ -1,0 +1,19 @@
+Your code seems to be correct and should work fine. However, there are a few things you can do to make it more efficient:
+
+1. You don't need `t+1` in the range function because the input() statement is only called once.
+
+2. Instead of printing both values every time, you can print them conditionally as you're doing now.
+
+Here's how your code could look like after these improvements:
+
+```Python
+t = int(input())
+
+for _ in range(t):
+    x, y = map(int, input().split())
+    if x < y:
+        print(x, ' ', y)
+    else:
+        print(y, ' ', x)
+```
+This code reads the number of test cases `t`, then for each test case it reads two numbers `x` and `y`. It compares these numbers and prints them in the required order.

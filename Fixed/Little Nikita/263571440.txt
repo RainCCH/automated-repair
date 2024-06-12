@@ -1,0 +1,18 @@
+This is a Python script that takes an integer input `e`, and then in a loop, it reads two integers `n` and `m` as strings. It checks if `m` is greater than `n`, and prints "no" in that case.
+
+If `m` is not greater than `n`, the script then checks if `m` is equal to `n`, or if `m` is even (i.e., `m % 2 == 0`). If either of these conditions is true, it prints "yes". Otherwise, it prints "no".
+
+The loop continues until `e` becomes zero.
+
+Here's a breakdown of the code:
+
+1. `e = int(input())`: Reads an integer input from the user and stores it in the variable `e`.
+2. `while e != 0:`: Loops until `e` is no longer equal to zero.
+3. `n, m = input().split()`: Reads two integers as strings and splits them into separate variables `n` and `m`. The `input()` function reads a line of text from the user, and the `split()` method splits that string into substrings separated by whitespace (spaces or tabs).
+4. `if m > n:`: Checks if `m` is greater than `n`. If true, prints "no" and moves on to the next iteration.
+5. `else:`: If `m` is not greater than `n`, this block of code runs.
+6. `if m == n or (m % 2) == 0:`: Checks if `m` is equal to `n`, or if `m` is even (i.e., the remainder when dividing by 2 is zero). If either condition is true, prints "yes".
+7. `else:`: If neither of the above conditions is true, prints "no".
+8. `e = e - 1`: Decrement the value of `e` for the next iteration.
+
+This script appears to be a simple program that checks certain conditions based on the values of two integers `n` and `m`, and prints either "yes" or "no" accordingly.

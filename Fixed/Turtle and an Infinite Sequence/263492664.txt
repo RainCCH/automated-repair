@@ -1,0 +1,15 @@
+The code you've posted is a solution to the "Bitwise OR of all integers between L and R" problem on HackerRank. It calculates the bitwise OR of all integers between two given numbers `L` and `R`.
+
+Here's how it works:
+
+1. The first function, `MSBPosition(N)`, returns the Most Significant Bit (MSB) position in a binary number `N`. This is done by continuously shifting the bits of `N` to the right (`>> 1`) until `N` becomes zero.
+
+2. The second function, `findBitwiseOR(L, R)`, calculates the bitwise OR of all integers between `L` and `R`.
+
+    - It first finds the MSB positions in `L` and `R`.
+    - Then it calculates the bitwise OR for all numbers that have the same MSB as `L` and `R`. This is done by adding the value `1 << msb_p1` to the result until `msb_p1` and `msb_p2` are no longer equal.
+    - After that, it finds the max of `msb_p1` and `msb_p2`, and then sets all bits from this position up to the 0th bit in the result.
+
+3. In the driver code, it takes the number of test cases as input, then for each test case, it takes two numbers `n` and `m` as input, calculates the bitwise OR of all integers between `max(0, n - m)` and `n + m`, and prints the result.
+
+This solution has a time complexity of O(log max(L, R)) because it needs to calculate the MSB position and then iterate up to that position.

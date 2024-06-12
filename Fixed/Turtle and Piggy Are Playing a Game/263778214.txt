@@ -1,0 +1,22 @@
+This Python script calculates the logarithm base 2 of a given integer.
+
+Here's how it works:
+
+1. It first takes an integer input `t` which represents the number of test cases.
+2. The script then enters a loop that continues until `t` becomes zero.
+3. Inside the loop, it takes a string input `a`, splits it into two parts at the space character (`' '`) and converts the second part (index 1) to an integer `b`.
+4. It then calculates the logarithm base 2 of `b` using the `math.log2()` function from Python's built-in math module.
+5. Finally, it prints the result as an integer.
+
+Here is the step-by-step breakdown:
+
+```
+t = int(input())  # get the number of test cases
+while(t>0):      # loop through each test case
+    a=(input())   # get the input string for this test case
+    val=a.split(' ')  # split the string into two parts at the space character
+    b=int(val[1])     # convert the second part to an integer
+    print(int(math.log2(b)))  # calculate and print the logarithm base 2 of b as an integer
+```
+
+This script assumes that the input strings are in the format "word [number]" where "word" is any string, and "[number]" is a number.

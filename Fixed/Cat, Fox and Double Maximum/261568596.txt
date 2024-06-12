@@ -1,0 +1,22 @@
+This code is a solution to a problem on the platform HackerRank. The problem is called "Minimum Number of Moves" and it's part of the "Algorithmic Wonderland" series.
+
+The problem statement is as follows:
+
+Given an array `a` of size `n`, we want to find the minimum number of moves required to make all elements in the array equal to a specific target value. A move consists of incrementing or decrementing one element by 1. We are given a set of segments where each segment has two integers `l` and `r`. The goal is to make all numbers in the range `[l, r]` equal.
+
+Here's how you can solve this problem:
+
+- First, read the number of test cases.
+- For each test case:
+  - Read the size of the array `n`, and the number of segments `m`.
+  - Initialize two arrays `v` and `order` with size `n+1`. `v` will store the cumulative sum of elements in the array, and `order` will store the order in which elements are processed.
+  - Read `q` queries. For each query:
+    - Read an integer `x`.
+    - If `x` is already processed, skip it.
+    - Process `x`, mark it as visited, and update its order.
+  - Calculate the cumulative sum of all elements.
+  - Iterate over all segments:
+    - For each segment `[l, r]`, if the difference between the cumulative sum at index `r+1` and the cumulative sum at index `l-1` is greater than half of the segment size, calculate the median order for this segment.
+    - Update the minimum number of moves required.
+
+Finally, print the minimum number of moves required. If no valid segments are found, print `-1`.

@@ -1,0 +1,22 @@
+A nice problem!
+
+Let's break it down:
+
+The input format is `n` followed by `n` sets of three integers each, where `n` is the number of test cases.
+
+Each set of three integers represents the values of `a`, `b`, and `c`. The task is to find the minimum number of operations (additions) needed to make the sum of `a`, `b`, and `c` even.
+
+Here's a step-by-step explanation:
+
+1. Check if the sum of `a`, `b`, and `c` is odd or even. If it's odd, print `-1`. Otherwise, proceed.
+2. Sort the values of `a`, `b`, and `c` in ascending order. Let this sorted list be `cur`.
+3. Initialize a variable `ans` to keep track of the minimum number of operations needed.
+4. While `cur[1] > 0` (i.e., there are still some `b`s remaining), perform the following operations:
+   - Increment `ans` by 1 (to account for one operation).
+   - Decrement both `cur[1]` and `cur[2]` by 1 (since we're "using up" a `b` and a `c` each time).
+   - Sort `cur` again to maintain the correct order.
+5. Print the final value of `ans`, which represents the minimum number of operations needed.
+
+The reason for this algorithm is that we want to use up the `b`s and `c`s as quickly as possible while maintaining the even sum condition. By decrementing both `b` and `c` each time, we effectively "consume" them in a way that minimizes the number of operations needed.
+
+Well done on writing this code!

@@ -1,0 +1,11 @@
+This program is designed to simulate a game of chess where three players are involved. The function `chess_for_three` takes the scores of the three players as input and returns the winner or the sum of the two lowest scores if it's not possible for one player to win.
+
+The main part of the program reads in the number of games from the user, then asks for the scores of each game. For each game, it calls the `chess_for_three` function to determine the winner or the sum of the two lowest scores and prints the result.
+
+Here's how the program works:
+
+- If all three players have the same score, the function returns -1 to indicate that there is no clear winner.
+- If the total of any two players' scores is greater than the third player's score, then those two players win. The function returns their combined score.
+- If none of the above conditions are met, then the winner is the player who has the average of all three scores rounded down to the nearest integer.
+
+For example, if the scores are 10, 15, and 20, the program will return 12 (the average of the two lower scores), because no single player can win.

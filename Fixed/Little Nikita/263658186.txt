@@ -1,0 +1,19 @@
+The code you provided is written in Python, but it has some errors. Here's the corrected version:
+
+```python
+n, m = map(int, input().split())
+if 1 <= n and n <= 100 and 1 <= m and m <= 100:
+    if n >= m:
+        print("Yes")
+    else:
+        print("No")
+```
+
+Here's what I changed:
+
+* `input().split(" ")` returns a list of strings. To convert these to integers, you can use the `map` function with the `int` function.
+* The condition `n >= 1 and m <= 100` should be applied for both `n` and `m`, not just one of them.
+* The code inside the `if n >= m:` block was missing a print statement. I added `print("Yes")` to fix this.
+* The code inside the `else:` block was missing a print statement. I added `print("No")` to fix this.
+
+With these changes, your code should work as intended!
