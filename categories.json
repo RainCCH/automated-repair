@@ -1,0 +1,103 @@
+{
+    "runtime_errors": [
+      {
+        "type": "NameError",
+        "description": "Undefined Variable",
+        "examples": [
+          "Trying to use a variable that hasn't been defined"
+        ]
+      },
+      {
+        "type": "AttributeError",
+        "description": "Incorrect Use of Function",
+        "examples": [
+          "Attempting to call a method or access an attribute that doesn't exist for a particular object"
+        ]
+      },
+      {
+        "type": "TypeError",
+        "description": "Wrong Variable Type",
+        "examples": [
+          "Passing an argument of an unexpected type to a function"
+        ]
+      },
+      {
+        "type": "ValueError",
+        "description": "Value with Unexpected Format Passed to the Function",
+        "examples": [
+          "Providing an argument of the correct type but with an inappropriate value"
+        ]
+      },
+      {
+        "type": "IndexError",
+        "description": "Array Index Out of Bounds",
+        "examples": [
+          "Trying to access an element outside the valid range of an array or list"
+        ]
+      },
+      {
+        "type": "AttributeError",
+        "description": "Function Does Not Exist",
+        "examples": [
+          "Attempting to call a function that isn't defined for the object"
+        ]
+      },
+      {
+        "type": "ZeroDivisionError",
+        "description": "Division by Zero",
+        "examples": [
+          "Attempting to divide a number by zero"
+        ]
+      },
+      {
+        "type": "FileNotFoundError",
+        "description": "File Not Found",
+        "examples": [
+          "Trying to open a file that does not exist"
+        ]
+      },
+      {
+        "type": "KeyError",
+        "description": "Key Not Found in Dictionary",
+        "examples": [
+          "Accessing a dictionary key that does not exist"
+        ]
+      },
+      {
+        "type": "ImportError",
+        "description": "Import Statement Failed",
+        "examples": [
+          "Failing to import a module or package"
+        ]
+      },
+      {
+        "type": "ModuleNotFoundError",
+        "description": "Module Not Found",
+        "examples": [
+          "Importing a module that cannot be found"
+        ]
+      },
+      {
+        "type": "MemoryError",
+        "description": "Out of Memory",
+        "examples": [
+          "An operation that runs out of memory"
+        ]
+      },
+      {
+        "type": "OverflowError",
+        "description": "Numeric Overflow",
+        "examples": [
+          "The result of an arithmetic operation is too large"
+        ]
+      },
+      {
+        "type": "RecursionError",
+        "description": "Maximum Recursion Depth Exceeded",
+        "examples": [
+          "A function exceeds the maximum recursion depth"
+        ]
+      }
+    ]
+  }
+  

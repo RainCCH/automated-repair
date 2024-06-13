@@ -51,7 +51,7 @@ def write_fixed_files(buggy_files, base_directory, target_directory):
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='Fix buggy Python files.')
     parser.add_argument('--buggy_dir', type=str, help='Path to the directory containing buggy files', default='Buggy')
-    parser.add_argument('--result_dir', type=str, help='Path to the directory where fixed files will be saved', default='Fixed')
+    parser.add_argument('--result_dir', type=str, help='Path to the directory where fixed files will be saved', default='Code-Only-Response')
     args = parser.parse_args()
 
     base_directory = args.buggy_dir
