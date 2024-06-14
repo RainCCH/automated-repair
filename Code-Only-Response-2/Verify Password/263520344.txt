@@ -1,0 +1,38 @@
+The problem with your code is that it doesn't correctly verify if a digit comes after a letter. It checks the same condition in every iteration, which is not correct. Here's how you can fix this:
+
+```Python
+def solve():
+    n = int(input())
+    s = input()
+    num = []
+    alp = []
+    
+    if s != s.lower():
+        print('NO')
+        
+        return
+    
+    for i in range(n):
+        c = s[i]
+        
+        if c.isdigit():
+            if len(alp) > 0:
+                print('NO')
+                
+                return
+            num.append(int(c))
+        else:
+            alp.append(c)
+    
+    if (num == sorted(num)) and (sorted(alp) == alp):
+        print('YES')
+    else:
+        print('NO')
+        
+        
+if __name__ == '__main__':
+    for test in range(int(input())):
+        solve()
+```
+
+In this code, we maintain a counter `alp` to count the number of letters. If we encounter a digit and there are already some letters (i.e., `alp > 0`), then it means a digit comes after a letter, so we print 'NO' and return.

@@ -1,0 +1,21 @@
+The bug in your code is that you are not storing the test cases and their corresponding results. You are just printing -1 as soon as you encounter an invalid case.
+
+Here's a modified version of your code:
+
+```Python
+rounds = int(input())
+results = []
+for _ in range(rounds):
+    p1, p2, p3 = map(int, input().split())
+    if (p1+p2+p3)%2!=0:
+        results.append(-1)
+    elif (p1+p2) >= p3:
+        results.append((p1+p2+p3)//2)
+    else:
+        results.append(p1+p2)
+
+for result in results:
+    print(result)
+```
+
+This code will store the results for each test case and then print them all at once.

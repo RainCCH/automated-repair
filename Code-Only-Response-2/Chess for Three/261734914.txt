@@ -1,0 +1,19 @@
+The problem with your code is that you are assuming that the only way to get a score of `p1`, `p2`, and `p3` is by having played exactly `p1` games where both players scored 0, exactly `p2-p1` games where one player scored 2 and the other scored 0, and exactly `p3-p2` games where both players scored 1. This is not necessarily true.
+
+Here's a revised version of your code that correctly calculates the maximum possible number of draws:
+
+```
+a=int(input())
+for i in range(a):
+    b=list(map(int,input().split(' ')))
+    ma=0
+    s=b[0]+b[1]+b[2]
+    if s%3!=0:
+        print("-1")
+        continue
+    for j in range(s//3):
+        ma+=2
+    print(str(ma))
+```
+
+In this code, we first check if the sum of `p1`, `p2`, and `p3` is a multiple of 3. If it's not, then there's no way to get those scores by playing games between the three players, so we print `-1`. Otherwise, we calculate the maximum possible number of draws as the integer division of `s/3`, which represents the total number of games played divided by 3 (since each game with a draw is equivalent to one game where both players scored 1). We then print this value.

@@ -1,0 +1,32 @@
+The main issue with your code is that it's not correctly generating the array `a0, a1, ..., an-1` and checking if it satisfies all the conditions given in the problem statement.
+
+Here's a revised version of your code:
+
+```Python
+def find_array(x):
+    n = 1
+    while 2**n - 1 <= x:
+        n += 1
+
+    array = []
+    for i in range(n):
+        if (x - (2**i)) >= (2**(i+1)):
+            array.append(0)
+        elif (x - (2**i)) < 0:
+            array.append(-1)
+        else:
+            array.append(1)
+
+    return n, array
+
+t = int(input())
+for _ in range(t):
+    x = int(input())
+    n, array = find_array(x)
+    print(n)
+    print(' '.join(map(str, array)))
+```
+
+This code first calculates the length `n` of the array by finding the largest power of 2 that is less than or equal to `x`. Then it constructs the array by iterating from 0 to `n-1` and adding `-1`, 0, or 1 depending on whether `x` is greater than, less than, or equal to the current power of 2.
+
+Please note that this code assumes that the input will always be a positive integer less than `230`. If this is not guaranteed by your problem statement, you may need to add additional error checking.

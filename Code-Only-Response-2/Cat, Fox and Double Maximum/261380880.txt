@@ -1,0 +1,18 @@
+The bug is that you are not printing the `q` list at all. You have to print it after filling up the `q` list. Also, the last loop seems unnecessary and might be causing an error if `n` is odd.
+
+Here's the corrected code:
+
+```Python
+for _ in range(int(input())):
+    n = int(input())
+    p = list(map(int,input().split()))
+    q=[]
+    for x in range(1,n//2+1):
+        q.append(x)
+        q.append(n+1-x)
+    print(' '.join(str(x) for x in q))
+```
+
+In this code, we first read the input and create a `q` list. Then we print the `q` list by converting each element to string and joining them together with spaces in between.
+
+Note: The last loop has been removed as it seems unnecessary.

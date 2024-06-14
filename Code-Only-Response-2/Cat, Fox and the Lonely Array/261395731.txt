@@ -1,0 +1,36 @@
+The problem with your code is that you are not correctly calculating the loneliness of the array. You need to find the minimum k such that for any two positions i and j, a[i]|a[i+1]|...|a[i+k-1] = a[j]|a[j+1]|...|a[j+k-1]. 
+
+Here's the corrected code:
+
+```Python
+tc = int(input())
+for _ in range(tc):
+    prev_position = [-1]*20
+    n = int(input())
+    arr = []
+    given = input().split()
+    for _ in range(n):
+        arr.append(int(given[_]))
+    
+    k = 0
+    while True:
+        found_duplicates = False
+        for i in range(len(arr)-k-1):
+            bitwise_or = 0
+            for j in range(k+1):
+                bitwise_or |= arr[i+j]
+            for j in range(i+len(arr)-i-k, len(arr)):
+                if bitwise_or == (bitwise_or | arr[j]):
+                    found_duplicates = True
+                    break
+            if not found_duplicates:
+                break
+        if found_duplicates:
+            k += 1
+        else:
+            break
+    
+    print(k+1)
+```
+
+This code works by iterating over possible values of k and checking if for any two positions i and j, a[i]|a[i+1]|...|a[i+k-1] = a[j]|a[j+1]|...|a[j+k-1]. If it finds such a k, it stops and prints the value.

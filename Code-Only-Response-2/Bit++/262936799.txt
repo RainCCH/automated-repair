@@ -1,0 +1,16 @@
+The bug is that the variable `y` is not defined, which causes a `NameError`. To fix this, you can replace `range(y)` with `range(int(input()))`, which reads an integer from the input and uses it as the number of iterations for the loop.
+
+Here's the corrected code:
+```python
+e = 0
+n = int(input())
+for i in range(n):
+    u = list(str(x) for x in input().split())
+    for j in u:
+        if j == "++X" or j == "X++":
+            e += 1
+        elif j == "--X" or j == "X--":
+            e -= 1
+print(e)
+```
+This should fix the bug and produce the correct output.

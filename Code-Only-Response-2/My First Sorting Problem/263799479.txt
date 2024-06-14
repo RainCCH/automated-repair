@@ -1,0 +1,17 @@
+I'd be happy to help! The issue with your code is that you're printing the values of `x` and `y` in the wrong order. You should always print the minimum first, then the maximum.
+
+Here's the corrected code:
+
+```python
+t = int(input())
+
+for i in range(t):
+    x, y = map(int, input().split())
+    min_value = min(x, y)
+    max_value = max(x, y)
+    print(min_value, max_value)
+```
+
+This code first reads the number of test cases `t`. Then it iterates over each test case. For each test case, it reads two integers `x` and `y`, calculates their minimum and maximum values using Python's built-in `min` and `max` functions, and then prints these values.
+
+Note that I also changed the range to `range(t)` instead of `range(t+1)`. This is because the `for` loop will iterate `t+1` times when you pass `t+1` as the argument, but we only have `t` test cases.

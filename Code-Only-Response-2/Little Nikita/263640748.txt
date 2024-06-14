@@ -1,0 +1,22 @@
+The problem with your code is that you are using the `and` keyword to check two conditions simultaneously. However, in Python, when multiple conditions are separated by `and`, they must all be true for the expression to evaluate to True. 
+
+In your case, since `(m+n) % 2 == 0` can also be False even when `m > n`, it's not a reliable way to check this condition.
+
+Here is a corrected version of your code:
+
+```Python
+t = int(input())
+def solve():
+    n = int(input())
+    m = int(input())
+    if (n + m) % 2 == 0 and m <= n:
+        print("YES")
+    else:
+        print("NO")
+
+while t > 0:
+    solve()
+    t -= 1
+```
+
+This code will correctly determine whether it's possible for Nikita to obtain a tower with `m` cubes after `n` moves.

@@ -1,0 +1,22 @@
+The bug in your code is that you're not actually checking for the conditions correctly. The `input()` function returns a string, so when you do `l.append=input()`, it's actually assigning the return value of `input()` to `l` instead of appending it.
+
+Also, when you check for the conditions, you should be comparing strings using `.strip()` or `.lower()` to ensure that the condition is met regardless of the order in which the operation and variable are written. Here's the corrected code:
+
+```python
+n = int(input())
+program = []
+c = 0
+
+for i in range(n):
+    program.append(input().strip())
+
+for i in program:
+    if i == "++X" or i.lower() == "x++":
+        c += 1
+    else:
+        c -= 1
+
+print(c)
+```
+
+This code should work correctly now. It first reads the number of statements, then reads each statement and stores it in a list called `program`. Then it goes through each statement in the program, checks if it's either "++X" or "x++", and increments or decrements the counter accordingly. Finally, it prints the final value of the counter.

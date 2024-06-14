@@ -1,0 +1,14 @@
+The problem with your code is that you're trying to swap `x` and `y`, but then you're printing `c`. You should just print `x` and `y`. Here's the corrected code:
+
+```Python
+t = int(input())
+
+for i in range(t):
+  x = int(input())
+  y = int(input())
+  min_val = min(x, y)
+  max_val = max(x, y)
+  print(str(min_val) + " " + str(max_val))
+```
+
+This version of the code uses Python's built-in `min` and `max` functions to find the minimum and maximum values of `x` and `y`. Then it prints these two values separated by a space.

@@ -1,0 +1,17 @@
+The issue with your code is that it doesn't correctly identify whether the operation is ++ or --. It simply checks if the second character of the input string is '+', and if not, assumes it's '--'. However, this approach fails to account for cases where the operation is actually '-', but there are no characters before 'X' in the string.
+
+Here's a corrected version of your code:
+
+```
+n = int(input())
+x = 0
+for i in range(n):
+    st = input()
+    if st[0] == '+':
+        x += 1
+    elif st[0] == '-':
+        x -= 1
+print(x)
+```
+
+In this corrected version, we check the first character of the string instead of the second. This ensures that we correctly identify whether the operation is ++ or --.

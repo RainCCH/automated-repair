@@ -1,0 +1,38 @@
+The problem with the code is that it's not correctly checking if the subarray ORs are equal for all `k` up to a certain point. It only checks this for the current value of `k`, and then returns `False`. 
+
+Here's the corrected version:
+
+```Python
+def check_loneliness(arr, k):
+    n = len(arr)
+    for i in range(n - k + 1):
+        subarray_or = 0
+        for j in range(k):
+            subarray_or |= arr[i + j]
+        if subarray_or != arr[i + k - 1]:
+            return False
+    return True
+
+def loneliness_of_array(arr):
+    n = len(arr)
+    low, high = 1, n
+    while low < high:
+        mid = (low + high) // 2
+        if check_loneliness(arr, mid):
+            high = mid
+        else:
+            low = mid + 1
+    return low
+
+def main():
+    t = int(input().strip())
+    for _ in range(t):
+        n = int(input().strip())
+        arr = list(map(int, input().strip().split()))
+        print(loneliness_of_array(arr))
+
+if __name__ == "_main_":
+   main()
+```
+
+This version of the code correctly calculates the loneliness by checking if all subarrays of length `k` have the same bitwise OR as their rightmost element.

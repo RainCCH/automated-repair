@@ -1,0 +1,48 @@
+The issue with your code is that it's only checking the order of characters. It's not checking for the condition where there are no digits after a letter, or vice versa.
+
+Here is a corrected version of your code:
+
+```Python
+n = int(input())
+for _ in range(n):
+    size = int(input())
+    inp = input()
+    
+    # Check if all letters come before all digits
+    has_digit_after_letter = False
+    for i in range(size - 1):
+        if ord('a') <= ord(inp[i]) <= ord('z'):
+            if ord('0') <= ord(inp[i+1]) <= ord('9'):
+                has_digit_after_letter = True
+                break
+    
+    # Check if all digits are sorted
+    digits_sorted = True
+    previous_digit = None
+    for i in range(size):
+        if inp[i].isdigit():
+            digit = int(inp[i])
+            if previous_digit is not None and digit < previous_digit:
+                digits_sorted = False
+                break
+            previous_digit = digit
+    
+    # Check if all letters are sorted
+    letters_sorted = True
+    previous_letter = None
+    for i in range(size):
+        if ord('a') <= ord(inp[i]) <= ord('z'):
+            letter = inp[i]
+            if previous_letter is not None and letter < previous_letter:
+                letters_sorted = False
+                break
+            previous_letter = letter
+    
+    # Print the result based on the checks above
+    if has_digit_after_letter or not digits_sorted or not letters_sorted:
+        print('NO')
+    else:
+        print('YES')
+```
+
+This code correctly verifies whether a given password is strong according to Monocarp's conditions.

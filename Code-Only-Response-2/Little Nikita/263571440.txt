@@ -1,0 +1,19 @@
+The problem with your code is that you're not handling the case where Nikita can put exactly 𝑛
+ cubes on top of an initially empty tower. This happens when `m == n`. You should output "yes" in this case, but your current code only checks if `m` is equal to `n` and then outputs "yes". 
+
+Here's a corrected version:
+
+```Python
+e = int(input())
+while e > 0:
+    n, m = map(int, input().split())
+    if m > n:
+        print("No")
+    else:
+        print("Yes" if (m == n) or ((n - m) % 2 == 0) else "No")
+    e -= 1
+```
+
+In this code, we use the `map` function to convert both `n` and `m` to integers at the same time. This makes the code more readable and easier to maintain.
+
+Also, note that I changed `e = e - 1` to `e -= 1`. The latter is a more Pythonic way of decrementing a variable by 1.

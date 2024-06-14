@@ -4,17 +4,17 @@ from tqdm import tqdm
 import argparse
 
 def response_codeonly(content):
-    question = content
     response = ollama.chat(
         model="Llama3",
         messages=[
-            {"role": "user", "content": question}
+            {"role": "user", "content": content}
         ]
     )
     return response["message"]["content"]
 
 def response_with_description(content, description):
-    content = f"{description}\n{content}"
+    content = "This code is an attempt to solve the following problem:\n" + description + "\n\nHowever, the code is buggy. Can you help me fix the code?\n\n" + content
+    # print(content)
     response = ollama.chat(
         model="Llama3",
         messages=[
@@ -74,7 +74,7 @@ def write_fixed_files(buggy_files, base_directory, target_directory):
         code_files = data["code"]
         
         for file_name, content in code_files.items():
-            fixed_content = response_codeonly(content)
+            fixed_content = response_with_description(content, description)
             # Get the relative path of the file to maintain the same structure
             relative_path = os.path.join(question, file_name)
             target_file_path = os.path.join(target_directory, os.path.splitext(relative_path)[0] + '.txt')
@@ -86,7 +86,7 @@ def write_fixed_files(buggy_files, base_directory, target_directory):
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='Fix buggy Python files.')
     parser.add_argument('--buggy_dir', type=str, help='Path to the directory containing buggy files', default='Buggy')
-    parser.add_argument('--result_dir', type=str, help='Path to the directory where fixed files will be saved', default='Code-Only-Response')
+    parser.add_argument('--result_dir', type=str, help='Path to the directory where fixed files will be saved', default='Code-Only-Response-2')
     args = parser.parse_args()
 
     base_directory = args.buggy_dir

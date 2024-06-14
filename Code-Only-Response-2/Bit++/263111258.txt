@@ -1,0 +1,21 @@
+The issue with your code is that it's not correctly parsing the input statements. It's treating each statement as a single string, and then trying to access the second character of the string (index 1) to determine whether the operation is ++ or --.
+
+However, since the input format does not guarantee that the operation will always be the second character of the string, this approach won't work. Instead, you should iterate over each character in the statement and check if it's + or -.
+
+Here's a corrected version of your code:
+
+```python
+t = int(input())
+x = 0
+while t > 0:
+    s = input()
+    for c in s:
+        if c == "+":
+            x += 1
+        elif c == "-":
+            x -= 1
+    t -= 1
+print(x)
+```
+
+This code works by initializing a variable `x` to 0, then iterating over each statement. For each statement, it iterates over each character in the statement and increments or decrements `x` based on whether the character is + or -. Finally, it prints the value of `x`.

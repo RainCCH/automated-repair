@@ -1,0 +1,33 @@
+The bug in the code is due to incorrect logic and indexing. Here's a corrected version:
+
+```Python
+n=int(input())
+for _ in range(n):
+    p=int(input())
+    count=0
+    l1=list(map(int,input().split()))
+    l2=list(map(int,input().split()))
+    if(l1==l2):
+        print(0)
+    else:
+        i,j = 0,0
+        while(i < len(l1) and j < len(l2)):
+            if(l1[i] == l2[j]):
+                i+=1
+                j+=1
+            elif(l1[i] < l2[j]):
+                count += abs(len(l2)-j)
+                for k in range(j):
+                    l1.append(l2[k])
+                j = len(l2)
+            else:
+                count+=abs(l2[j]-l1[i])
+                i+=1
+        while(i < len(l1)):
+            count+=1
+            l1.append(0)
+        while(j < len(l2)):
+            count += 1
+        print(count)
+```
+This code sorts both lists and then iterates over them. If the current elements are equal, it increments both indices. If `l1[i]` is less than `l2[j]`, it calculates the difference in lengths of the two lists and adds this to the count. It also appends all remaining elements from `l2` to `l1`. Finally, if there are any remaining elements in either list, it counts them as well.

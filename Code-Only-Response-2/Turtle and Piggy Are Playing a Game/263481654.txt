@@ -1,0 +1,28 @@
+The problem with your code is that you are trying to calculate the maximum score for each case separately. However, the optimal strategy is not necessarily to start at the rightmost value and reduce it as much as possible.
+
+A better approach would be to use a mathematical formula to calculate the maximum score directly. Here's the corrected code:
+
+```
+def max_score(t, test_cases):
+    results = []
+    
+    for case in test_cases:
+        l, r = case
+        
+        # We can use the fact that 2l <= r
+        # The maximum number of steps is the number of times we need to divide by 2
+        score = 0
+        while r > l:
+            r //= 2
+            score += 1
+        
+        results.append(score)
+    
+    return results
+
+results = max_score(t, test_cases)
+for result in results:
+    print(result)
+```
+
+This code calculates the maximum score for each case by using the fact that `r` is at least `l*2`, so we can divide `r` by 2 until it's less than or equal to `l`. The number of divisions needed is the maximum possible score.

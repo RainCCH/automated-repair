@@ -1,0 +1,26 @@
+The problem with your code is that you are trying to solve the problem of finding the maximum number of draws given three players' scores in a very inefficient way. You are also not considering the fact that each player can play against any other player, and there can be multiple games played between the same pair of players.
+
+Here's a more efficient solution:
+
+```
+def main():
+    t = int(input())
+    for _ in range(t):
+        p1, p2, p3 = map(int, input().split())
+        if (p1 == 0 and p2 == 0) or (p2 == 1 and p3 == 2) or (p1 == 1 and p3 == 1):
+            print(-1)
+        else:
+            draws = min(p1 // 2, p2 // 2, p3 // 2)
+            if p1 % 2 != 0 and p2 % 2 != 0 and p3 % 2 != 0:
+                draws -= 1
+            print(draws)
+
+if __name__ == "__main__":
+    main()
+```
+
+In this code, we first read the number of test cases. Then for each test case, we read the scores of the three players. If any pair of scores is 0, or if one score is 2 and another is 1 (which means that player won all games against the third player), then it's not possible to get these scores by playing games between the three players, so we print -1.
+
+Otherwise, we calculate the maximum number of draws as the minimum of the number of wins each player can have divided by 2. If any of the scores is odd, that means one game was played and didn't end in a draw, so we subtract 1 from the total draws.
+
+Finally, we print the calculated draws.

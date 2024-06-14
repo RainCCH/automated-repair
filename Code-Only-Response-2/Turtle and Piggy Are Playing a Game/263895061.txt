@@ -1,0 +1,30 @@
+The issue with your code is that you're not considering the case where `l` is a power of 2 and `r` is less than it. In this case, the maximum score will be achieved by setting `x` to `l` directly.
+
+Here's the corrected code:
+
+```python
+def find_maximum(l, r):
+    max_power = 0
+    while (1 << (max_power + 1)) <= r:
+        max_power += 1
+
+    if (1 << max_power) > r:  # If l is a power of 2 and r is less than it
+        return r - l + 1
+    elif (1 << max_power) >= l:
+        return max_power
+    else:
+        return max_power - 1
+
+t = int(input())
+results = []
+for _ in range(t):
+    l, r = map(int, input().split())
+    results.append(find_maximum(l, r))
+
+for res in results:
+    print(res)
+```
+
+This code first finds the largest power of 2 within the range `[l, r]`. If this power is greater than `r`, it means that `l` is a power of 2 and `r` is less than it, so the maximum score will be achieved by setting `x` to `l` directly. In this case, the score will be `r - l + 1`.
+
+If the largest power of 2 is within the range `[l, r]`, the maximum score will be achieved by setting `x` to this power. If the largest power of 2 is less than `l`, the maximum score will be achieved by setting `x` to the largest power of 2 that is just below `l`.

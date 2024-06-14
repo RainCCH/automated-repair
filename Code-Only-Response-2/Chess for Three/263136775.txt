@@ -1,0 +1,24 @@
+The bug in the code is that it doesn't correctly calculate the maximum number of draws. 
+
+A draw can only occur when two players have an even score. Therefore, if a player has an odd score, there must be at least one loss (and possibly multiple losses). This means we need to find the difference between the highest and second-highest scores, as this will give us the maximum number of draws.
+
+Here's the corrected code:
+
+```
+def chess_for_three(p1, p2, p3):
+    if p1+p2+p3!=6*(p1+p2+p3)//4:
+        print(-1)
+    else:
+        print((p3-p2)//2)
+
+num=int(input())
+for i in range(num):
+    p1,int(input())
+    p2=int(input())
+    p3=int(input())
+    chess_for_three(p1, p2, p3)
+```
+
+In this code, we first check if the sum of all scores is equal to 6/4 times their average. If it's not, then there are no valid game results that can produce these scores, and we print -1. 
+
+If the condition is satisfied, then we calculate the maximum number of draws by subtracting p2 from p3 (which must be even) and dividing by 2.

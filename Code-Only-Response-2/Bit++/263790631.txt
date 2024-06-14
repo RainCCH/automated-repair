@@ -1,0 +1,19 @@
+The issue with your code is that it's not correctly parsing the operation and variable from each statement. Specifically, the condition `st[1] == "+"` is trying to check if the second character of the string is a "+", but this won't work because the variable "X" is always present in the statement.
+
+Here's the corrected code:
+
+```
+n = int(input())
+x = 0
+for i in range(n) :
+    st = input()
+    if '++' in st:
+        x += 1
+    elif '--' in st:
+        x -= 1
+print(x)
+```
+
+In this corrected version, we're using the `in` operator to check if the string contains either "++" or "--". This way, we can correctly identify whether the operation is incrementing or decrementing the value of `x`.
+
+Let me know if you have any questions or need further assistance!

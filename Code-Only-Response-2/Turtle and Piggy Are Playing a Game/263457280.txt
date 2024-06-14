@@ -1,0 +1,24 @@
+The issue with your code is that you are not correctly calculating the maximum score. The score will be maximized when Turtle chooses `r` (the upper limit of the range) initially, because Piggy will keep reducing `x` until it becomes 1.
+
+Here's the corrected code:
+
+```Python
+t = int(input())
+for i in range(t):
+    l, r = map(int, input().split())
+    score = 0
+    x = r
+    while x > 1:
+        for p in range(2, x + 1):
+            if x % p == 0:
+                x //= p
+                score += 1
+                break
+    print(score)
+```
+
+In this code, we start by reading the number of test cases `t`. Then, for each test case, we read the lower and upper limits `l` and `r` of the range. We initialize the score to 0 and set `x` to `r`.
+
+Then, we enter a while loop that continues as long as `x` is greater than 1. Inside the loop, we iterate over all numbers from 2 to `x`, inclusive. If `x` is divisible by any of these numbers, we divide `x` by that number and increment the score. We break out of the inner loop once we find a divisor.
+
+Finally, we print the total score.

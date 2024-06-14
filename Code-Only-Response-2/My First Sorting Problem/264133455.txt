@@ -1,0 +1,14 @@
+The provided code seems to be missing some functionality for handling multiple test cases. Here's a corrected version:
+
+```
+t = int(input())
+for _ in range(t):
+    x, y = map(int, input().split())
+    print(min(x, y), max(x, y))
+```
+
+This code reads the number of test cases (`t`) from the first line of the input. Then it iterates `t` times, reading two integers `x` and `y` each time, calculates their minimum and maximum, and prints them.
+
+The `map` function applies a specified function to each item in an iterable (like a list or string). In this case, we're using `int` to convert the strings read from the input into integers. The `split` method is used to split the line of input into two parts, which are then converted into integers.
+
+This corrected code should solve the problem as specified.

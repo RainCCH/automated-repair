@@ -1,0 +1,33 @@
+I can help you with that. The issue lies in the fact that your code is not correctly calculating the maximum score for a given permutation `p`. 
+
+Here's a corrected version of your code:
+
+```Python
+for _ in range(int(input())):
+    n = int(input())
+    p = list(map(int, input().split()))
+    
+    v = [0] * (n + 1)
+    order = [0] * (n + 1)
+    q = int(input())
+    for i in range(1, q + 1):
+        x = int(input())
+        if v[x]: continue
+        v[x] = 1
+        order[x] = i
+    
+    be = [0] * (n + 1)
+    res = n + 8
+    for i in range(1, n + 1): 
+        be[i] = be[i - 1] + v[i]
+    
+    for e in [[int(i) for i in input().split()] for _ in range(n)]:
+        l, r = e[0], e[1]
+        if be[r] - be[l - 1] > (r - l + 1) // 2:
+            p_sub = [i for i in order[l:r + 1] if i > 0]
+            res = min(res, p_sub[(r - l + 1) // 2])
+    
+    print(-1 if res == n + 8 else res)
+```
+
+This code first calculates the score of a given permutation `p` by iterating through all subarrays of the permutation and checking for local maxima. The maximum score is updated accordingly. Finally, it prints the maximum score found.

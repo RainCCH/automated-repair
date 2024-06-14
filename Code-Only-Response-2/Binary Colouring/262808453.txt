@@ -1,0 +1,30 @@
+The code you provided seems to have several issues. Here is the corrected version:
+
+```python
+def find_array(x):
+    n = 0
+    while True:
+        if x == 2**n - 1:
+            break
+        n += 1
+    
+    a = [0] * (n+1)
+    for i in range(n, -1, -1):
+        a[i] = (x // (2**i)) % 3 - 1
+        x -= a[i] * 2**i
+
+    return n+1, list(reversed(a))
+
+t = int(input())
+for _ in range(t):
+    x = int(input())
+    print(*find_array(x))
+```
+
+Here is the explanation of the code:
+
+The main idea of this code is to start with `x` and find the maximum possible binary number that is less than or equal to `x`. This will give us the length of the array. Then we can calculate the values of the array elements from right to left.
+
+For each element, we subtract the value times 2 raised to the power of the position from `x`, effectively moving towards the right in binary. The remainder when divided by 3 gives us the value of the current bit (0 if it's a 0 or 1 if it's a 1), minus one since our values are -1, 0, and 1.
+
+The time complexity is O(n) where n is the length of the array.

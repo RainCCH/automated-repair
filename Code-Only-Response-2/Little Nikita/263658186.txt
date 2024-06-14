@@ -1,0 +1,15 @@
+The bug in your code is that it's missing the print statement for the output. Here is the corrected code:
+
+```python
+t = int(input())
+for _ in range(t):
+    n,m = input().split(" ")
+    n,m = int(n) , int(m)
+    if 1 <= n <= 100 and 1 <= m <= 100:
+        if n >= m:
+            print("Yes")
+        else:
+            print("No")
+```
+
+This code will now correctly read the number of test cases, iterate over them, and print "Yes" or "No" for each case based on whether Nikita can obtain a tower with `m` cubes after `n` moves.

@@ -1,0 +1,33 @@
+The issue with your code is that you are trying to split the binary string into individual digits, which is not a valid operation. Also, the logic for constructing the array `a0, a1, ..., an-1` is missing.
+
+Here's the corrected code:
+
+```Python
+def integer_to_binary_array(x):
+    if x == 0:
+        return [0], 1
+    
+    binary_digits = []
+    n = 0
+    while x > 0:
+        remainder = x % 2
+        binary_digits.append(remainder)
+        x = x // 2
+        n += 1
+    
+    # Join the list to form a string
+    binary_string = ''.join(str(digit) for digit in binary_digits)
+    
+    return [int(digit) for digit in binary_string], n + 1
+
+t=int(input())
+for i in range(t):
+    x=int(input())
+    a, n = integer_to_binary_array(x)
+    print(n)
+    print(*a)
+```
+
+This code constructs the array `a0, a1, ..., an-1` by iterating through the binary representation of `x`, appending each digit to the array. The length of the array is determined by the number of iterations needed to construct the binary string.
+
+Please note that this code assumes that there is always at least one valid solution for a given `x`.

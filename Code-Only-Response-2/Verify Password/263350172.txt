@@ -1,0 +1,36 @@
+I can help you with that. The bug in your code is due to the `sort()` method not actually modifying the string, but returning a new list. 
+
+Here's the corrected code:
+
+```Python
+t = int(input())
+while t != 0:
+    n = int(input())
+    s = input()
+    n = len(s)
+
+    # Check if all digits are sorted in non-decreasing order
+    digits = [char for char in s if char.isdigit()]
+    if digits and not (all(d1 <= d2 for d1, d2 in zip(digits, digits[1:]))):
+        print("NO")
+        t -= 1
+        continue
+
+    # Check if all letters are sorted in non-decreasing order
+    letters = [char for char in s if char.isalpha()]
+    if letters and not (all(l1 <= l2 for l1, l2 in zip(letters, letters[1:]))):
+        print("NO")
+        t -= 1
+        continue
+
+    # Check if there are no digits that come after a letter
+    for i in range(n-1):
+        if s[i].isalpha() and s[i+1].isdigit():
+            print("NO")
+            t -= 1
+            break
+    else:
+        print("YES")
+```
+
+This code first checks if all the digits are sorted in non-decreasing order, then it checks if all the letters are sorted in non-decreasing order. After that, it checks if there are no digits that come after a letter. If any of these conditions are not met, it prints "NO" and continues to the next test case. If all conditions are met, it prints "YES".

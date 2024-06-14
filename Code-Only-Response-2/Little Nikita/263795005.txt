@@ -1,0 +1,19 @@
+The problem with your code is that it always prints "No" when `n` or `m` (or both) are even, regardless of whether it's possible to get a tower with `m` cubes after `n` moves. However, the correct condition for this is not just whether `n` and `m` are odd or even.
+
+The key observation here is that Nikita can always achieve any height of tower (1 to `n`) by doing 0 to `n-1` moves. This is because he can add or remove cubes one by one, as long as there is at least one cube in the tower. So, if `m` is less than or equal to `n`, Nikita can achieve a tower of height `m`.
+
+Here's the corrected code:
+
+```python
+t = int(input())
+for _ in range(t):
+    temp = str(input()).split(" ")
+    n, m = int(temp[0]), int(temp[1])
+
+    if 0 <= m <= n:
+        print("Yes")
+    else:
+        print("No")
+```
+
+In this code, we're checking if `m` is within the range of heights that Nikita can achieve after `n` moves. If it is, then we print "Yes", otherwise we print "No".

@@ -1,0 +1,16 @@
+The problem with the code is that it's not considering the case where a player has more points than their opponent and still manages to have an odd number of games played. For example, if `p1 = 3`, `p2 = 2` and `p3 = 0`, then there are only `0` draws possible.
+
+Here is the corrected code:
+
+```Python
+for i in range(int(input())):
+    a,b,c = map(int,input().split())
+    total = a+b+c
+    if total%2 != 0:
+        print(-1)
+    else:
+        draws = (total//2) - max(a, b)
+        print(min(draws, a, b))
+```
+
+This code works by first checking if the total number of points is even. If it's not, then there are no possible combinations of games that can give this score, so we print `-1`. Otherwise, we calculate the maximum number of draws that could have happened (`draws`), and then take the minimum of `draws`, `a` and `b`. This gives us the maximum number of draws that is consistent with the given scores.
