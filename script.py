@@ -3,7 +3,7 @@ import os
 from tqdm import tqdm
 import argparse
 
-def fix_code(content):
+def response_codeonly(content):
     question = content
     response = ollama.chat(
         model="Llama3",
@@ -13,19 +13,50 @@ def fix_code(content):
     )
     return response["message"]["content"]
 
+def response_with_description(content, description):
+    content = f"{description}\n{content}"
+    response = ollama.chat(
+        model="Llama3",
+        messages=[
+            {"role": "user", "content": content}
+        ]
+    )
+    return response["message"]["content"]
+
 def read_buggy_files(base_dir):
-    buggy_files = []
+    all_data = {}
     
-    # Traverse through all subdirectories under base_directory
-    for root, dirs, files in os.walk(base_dir):
-        for file in files:
-            if file.endswith(".py"):
-                file_path = os.path.join(root, file)
-                with open(file_path, 'r') as f:
-                    content = f.read()
-                    buggy_files.append((file_path, content))
+    # List all entries in the base_directory
+    entries = os.listdir(base_dir)
     
-    return buggy_files
+    for entry in entries:
+        entry_path = os.path.join(base_dir, entry)
+        
+        if os.path.isdir(entry_path):
+            # Look for Python files and description.txt in the subdirectory
+            files = os.listdir(entry_path)
+            if(len(files) == 0):
+                continue
+            all_data[entry] = {"code": {}, "description": ""}
+            description_file = os.path.join(entry_path, "description.txt")
+            
+            if os.path.exists(description_file):
+                with open(description_file, 'r') as df:
+                    description = df.read()
+            else:
+                description = ""
+            all_data[entry]["description"] = description
+
+            for file in files:
+                if file.endswith(".py"):
+                    file_path = os.path.join(entry_path, file)
+                    with open(file_path, 'r') as f:
+                        content = f.read()
+                    
+                    
+                    all_data[entry]["code"][file] = content
+    
+    return all_data
 
 def create_fixed_directory_structure(base_directory, target_directory):
     for root, dirs, files in os.walk(base_directory):
@@ -38,15 +69,19 @@ def create_fixed_directory_structure(base_directory, target_directory):
 def write_fixed_files(buggy_files, base_directory, target_directory):
     create_fixed_directory_structure(base_directory, target_directory)
     
-    for file_path, content in tqdm(buggy_files, desc="Processing files", unit="file"):
-        fixed_content = fix_code(content)
-        # Get the relative path of the file to maintain the same structure
-        relative_path = os.path.relpath(file_path, base_directory)
-        target_file_path = os.path.join(target_directory, os.path.splitext(relative_path)[0] + '.txt')
+    for question, data in tqdm(buggy_files.items(), desc="Processing files", unit="question"):
+        description = data["description"]
+        code_files = data["code"]
         
-        with open(target_file_path, 'w') as f:
-            f.write(fixed_content)
-        print(f"Processed: {file_path}")
+        for file_name, content in code_files.items():
+            fixed_content = response_codeonly(content)
+            # Get the relative path of the file to maintain the same structure
+            relative_path = os.path.join(question, file_name)
+            target_file_path = os.path.join(target_directory, os.path.splitext(relative_path)[0] + '.txt')
+            
+            with open(target_file_path, 'w') as f:
+                f.write(fixed_content)
+            print(f"Processed: {relative_path}")
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='Fix buggy Python files.')
