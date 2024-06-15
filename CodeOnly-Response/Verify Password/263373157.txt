@@ -1,0 +1,23 @@
+The issue with this code is that the loop iterates over `size` elements of `inp`, but it tries to access `inp[i+1]` which can go out of range when `i` is `size-1`. This will result in an `IndexError`.
+
+Here's a corrected version:
+
+```Python
+n=int(input())
+while(n>0):
+    n=n-1
+    size=int(input())
+    inp=input()
+    prev=ord(inp[0])
+    op=1
+    for i in range(0,min(size-1,size)-1):  # iterate till second last element
+        if ord(inp[i])>ord(inp[i+1]):
+            op=0
+            break
+    if op:
+        print('YES')
+    else:
+        print('No')
+```
+
+This code ensures that it doesn't go out of range by using `min(size-1,size)-1` as the upper limit in the loop. This way, even if `size` is 1 or less, it will not attempt to access an element beyond the end of the string.

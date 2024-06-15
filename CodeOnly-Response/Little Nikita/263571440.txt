@@ -1,0 +1,28 @@
+I'd be happy to help you fix the code! 
+
+There are a few issues with your code:
+
+1. The variable `e` is being decremented in each iteration of the loop, but it's not clear what this variable represents or why it's being decremented. It seems that you might want to loop until `e` reaches 0, which means you should initialize `e` to a value and decrement it inside the loop.
+
+2. The input values for `n` and `m` are strings, so when you're comparing them using greater than (`>`), it will raise a TypeError because integers cannot be compared with strings. You need to convert these strings into integers before making any comparisons.
+
+Here's the corrected code:
+
+```Python
+e = int(input("Enter the number of test cases: "))
+for _ in range(e):
+    n, m = map(int, input("Enter two numbers (n and m): ").split())
+    if m > n:
+        print("no")
+    else:
+        if m == n or m % 2 == 0:
+            print ("yes")
+        else:
+            print("no")
+```
+
+In this code:
+
+- I've initialized `e` with the user's input, which is the number of test cases.
+- Inside the loop, I'm converting the input strings into integers using `map(int, ...)` before splitting them into `n` and `m`.
+- The rest of the logic remains the same as in your original code.

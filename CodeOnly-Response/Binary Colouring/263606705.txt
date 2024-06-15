@@ -1,0 +1,18 @@
+There are a few issues with this code:
+
+1. The variable `number` is not being used anywhere in the code.
+2. The line `if i <= list[i]:` doesn't make sense, as it's comparing an integer `i` to its own index in the list. I think you meant to compare `i` to another value or check if `i` is present in the list.
+3. You're trying to print a string where each character represents whether the corresponding number was found in the list. However, this code doesn't actually find numbers in the list, it just checks if they are less than or equal to themselves.
+
+Here's a revised version of your code:
+
+```Python
+for _ in range(int(input())):
+    n = int(input())
+    answer = ['1' if 2**i <= n else '0' for i in range(33)]
+    print(''.join(answer))
+```
+
+In this code, I'm iterating `int(input())` times. In each iteration, I'm reading an integer `n`, creating a list where each element is either '1' if the corresponding power of 2 is less than or equal to `n`, or '0' otherwise. Then, I'm printing this list as a string.
+
+Please note that you might want to adjust the range in the list comprehension based on your actual requirements. The current code checks for powers of 2 up to 2^32 (which is a maximum integer value in Python).

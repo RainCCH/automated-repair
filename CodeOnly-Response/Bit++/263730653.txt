@@ -1,0 +1,28 @@
+There are a few issues with this code:
+
+1. The `input()` function is not being called correctly to get the input strings. It should be inside parentheses and separated by commas if you're getting multiple inputs.
+
+2. `l.append=input()` should be `l.append(input())`.
+
+3. In your condition, you can't directly compare a string with "++x" or "x++" because it's checking for exact matches. You need to use the `in` keyword or `.lower().find()` method to check if the string contains these substrings.
+
+Here is the corrected code:
+
+```python
+n = int(input())
+l = []
+c = 0
+
+for i in range(n):
+    l.append(input())
+
+for i in l:
+    if '++x' in i.lower() or 'x++' in i.lower():
+        c += 1
+    else:
+        c -= 1
+
+print(c)
+```
+
+This code will correctly count the occurrences of "++x" and "x++" in the input strings. It converts both the input string and the comparison strings to lowercase for case-insensitive matching.

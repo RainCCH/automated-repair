@@ -1,0 +1,27 @@
+The problem with this code is that it does not handle the case where there are more than one maximum value in the list correctly. Also, it does not check if the sum of the elements is divisible by 2 before performing the operations.
+
+Here's a corrected version:
+
+```Python
+def solve(a):
+    for _ in range(a):
+        b = list(map(int, input().split(' ')))
+        s = sum(b)
+        if s % 2 == 1:
+            print("-1")
+            continue
+        while 0 in b:
+            b.remove(0)
+        while len(b) > 1:
+            ma = min(b)
+            for i in range(len(b)):
+                if b[i] == ma:
+                    break
+            b[b.index(max(b))]-=ma
+            b.pop(b.index(ma))
+        print(str(sum(b)))
+
+a=int(input())
+solve(a)
+```
+This code calculates the sum of the list and checks if it is divisible by 2. If not, it prints -1 and continues to the next iteration. Then it removes all zeros from the list. After that, it enters a loop where it keeps reducing the maximum value in the list until there's only one element left, which is the final answer.

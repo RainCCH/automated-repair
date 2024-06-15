@@ -1,0 +1,27 @@
+I can help you fix the code. The problem with your code is that it does not handle the case when `min_el` is equal to `start[0]` or `start[-1]`. Also, the code is not handling the case when there are duplicate elements in the list.
+
+Here's a fixed version of your code:
+
+```
+def find_permutation(lst, m):
+    res = [m + 1]
+    
+    for i in range(1, len(lst) - 1):
+        if lst[i] < min(res):
+            res.append(m + 2)
+            m += 1
+        else:
+            res.append(min(res))
+    
+    res.append(m + 1)
+    return res
+
+t = int(input())
+for _ in range(t):
+    m = int(input()) // 2
+    start = [int(x) for x in input().split()]
+    res = find_permutation(start, m)
+    print(*res)
+```
+
+This code works by iterating over the list and appending `m + 1` to the result whenever it encounters a number less than the smallest number seen so far. Otherwise, it appends the smallest number seen so far. This ensures that all numbers in the list are sorted in ascending order, which is what your original function was supposed to do.

@@ -1,0 +1,18 @@
+The issue with your code is that you are trying to sort a string which doesn't support the sort function. In Python, strings are immutable and cannot be changed in place. 
+
+Here's how you can fix it:
+
+```Python
+t=int(input())
+while t!=0:
+    n=int(input())
+    s=input()
+    n=len(s)
+    res=''.join(sorted(s))
+    if res == s:
+        print("YES")
+    else:
+        print("NO")
+```
+
+In this corrected code, I'm using the `sorted` function to sort the characters in the string, and then using `''.join(...)` to concatenate them back into a string.

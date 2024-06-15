@@ -1,0 +1,21 @@
+The issue with this code is that it assumes the input will always be two integers separated by a space. However, in Python, you can't directly convert a string to an integer using int() function if the string contains non-numeric characters.
+
+Here's how you can fix this code:
+
+```python
+t = int(input())
+for _ in range(t):
+    temp = input().split(" ")
+    n, m = map(int, temp)
+
+    if int(n) % 2 == 0 and int(m) % 2 == 0:
+        print("No")
+    else:
+        print("Yes")
+```
+
+In this corrected code:
+
+- The line `temp = str(input()).split(" ")` is replaced with `temp = input().split(" ")`. This is because the function input() returns a string, and there's no need to explicitly convert it to a string using str().
+
+- The lines `n, m = temp[0], temp[1]` are replaced with `n, m = map(int, temp)`. This is because the inputs might contain non-numeric characters, so we use the map function from the built-in module functools to convert each item in the list to an integer.

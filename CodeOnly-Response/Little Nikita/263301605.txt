@@ -1,0 +1,22 @@
+The problem with your code is that you're not preserving the order of elements when rotating the list. Here's a corrected version:
+
+```Python
+n = int(input())
+
+for _ in range(n):
+    a = int(input())
+    b = list(map(int, input().split()))
+    x = sorted(b)
+    
+    for j in range(a):
+        if b == x:
+            print("yes")
+            break
+        else:
+            b.insert(0, b.pop())  # rotate the list
+    
+    else:
+        print("no")
+```
+
+In this corrected code, I've used `insert` and `pop` methods to shift the first element of the list to the end. This effectively rotates the list in a circular manner.

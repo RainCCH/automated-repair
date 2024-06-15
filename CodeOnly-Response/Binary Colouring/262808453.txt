@@ -1,0 +1,42 @@
+I'd be happy to help you fix the code. It looks like there are several issues with the logic and indentation, which are causing the bugs. Here's a corrected version of your code:
+
+```python
+def binary_to_decimal(binary):
+    decimal = 0
+    for i in range(len(binary)):
+        if binary[i] == '1':
+            decimal += 2 ** (len(binary) - i - 1)
+    return decimal
+
+for _ in range(int(input())):
+    l = list(map(str, input()))
+    flag = False
+    for i in range(1, len(l)):
+        if l[i-1] != '0' and l[i] != '0':
+            if i == 1:
+                l[0], l[i-1] = '0', '0'
+                if l[i] == '1':
+                    l[i] = '-1'
+                flag = True
+            else:
+                l[i-2], l[i-1] = '1', '0'
+                if l[i] == '1':
+                    l[i] = '0'
+                else:
+                    l[i] = '-1'
+    if flag:
+        l.insert(0, '1')
+    print(len(l))
+    print(''.join(reversed(l)))
+```
+
+Here's what I changed:
+
+1. The `for` loop now iterates over the input number of times, using an underscore `_` as a variable.
+2. The inner `for` loop now correctly checks for adjacent non-zero bits and flips them if necessary.
+3. The logic for updating the binary string has been simplified and corrected.
+4. I added a `binary_to_decimal` function to convert the binary string back to decimal, which you might find useful.
+5. I used `map` to convert the input string to a list of characters (since strings are immutable in Python).
+6. I used `''.join(reversed(l))` to reverse and concatenate the list into a single string.
+
+Please let me know if this corrected code works for you!

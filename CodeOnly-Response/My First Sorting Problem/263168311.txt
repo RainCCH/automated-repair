@@ -1,0 +1,20 @@
+The issue with this code is that it's swapping the values of `x` and `y` when `x` is greater than `y`, but then it assigns the original value of `c` to both `x` and `y`. This means that if `x` was greater than `y`, both variables will be set to the original value of `c`, which is `-1`.
+
+To fix this, you should assign the swapped value to either `x` or `y`, not both. Here's the corrected code:
+
+```
+t = int(input())
+
+for i in range(t):
+    x = int(input())
+    y = int(input())
+    
+    if x > y:
+        c = x
+        x = y
+        y = c
+    
+    print(str(x) + " " + str(y))
+```
+
+This way, when `x` is greater than `y`, the values are correctly swapped.

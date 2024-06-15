@@ -1,0 +1,57 @@
+I'd be happy to help you fix the code. Here's the corrected version:
+
+```python
+import sys
+
+inp = sys.stdin.readline
+out = sys.stdout.write
+
+t = int(inp())
+
+ar2 = [0] * (10**5)
+
+
+def findMaxDist(n):
+    i = -1
+    d = 0
+    md = 1
+    while i < n-1:
+        d += 1
+        i += 1
+        if ar2[i]:
+            md = max(md, d)
+            d = 0
+
+    return max(md, d)
+
+
+for _ in range(t):
+    n = int(inp())
+    ar = list(map(int, inp().split()))
+    maxDist = 1
+
+    for i in range(0, 20):
+        a = 2**i
+        br = True
+        ig = True
+        for j in range(n):
+            ar2[j] = ar[j] & a
+            if ar2[j]:
+                ig = False
+            if ar[j] >= a:
+                br = False
+        if br:
+            break
+        if ig:
+            continue
+        maxDist = max(findMaxDist(n), maxDist)
+
+    out(str(maxDist) + '\n')
+```
+
+The changes I made were:
+
+1. In the `findMaxDist` function, changed the condition in the while loop to `i < n-1`, because array indices in Python start at 0 and go up to `n-1`.
+2. Added a newline character (`'\n'`) to the output statement in the main loop, to print the result on a new line.
+
+Please let me know if this fixed your code or if you still encounter issues.

@@ -1,0 +1,17 @@
+The issue with your code seems to be that it's not correctly handling the case where there are more than two values in each line of input. 
+
+Here is a revised version of your code:
+
+```Python
+import math
+t = int(input())
+while(t>0):
+    val = input().split()
+    b=int(val[1])
+    print(int(math.log2(b)))
+    t -= 1
+```
+
+This revised version reads the entire line at once and splits it into a list of strings. It then correctly converts `b` to an integer before calculating the log base 2.
+
+Also, I added `t -= 1` in your while loop condition, because you are supposed to read `t` number of inputs as per your problem statement.

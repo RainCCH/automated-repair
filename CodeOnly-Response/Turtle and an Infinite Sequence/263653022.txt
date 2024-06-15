@@ -1,0 +1,31 @@
+The bug is that you have a typo in the function call. You defined the function as `bitwise_range_or`, but you are trying to call it with `bitwise_range_orr`.
+
+Here is the corrected code:
+
+```Python
+import math
+def bitwise_range_or(l,r):
+
+    diff=r-l
+    x=int(math.log(diff,2))
+    ans=l
+    for i in range(0,x+1):  # Changed from +2 to +1
+        ans=ans|(1<<i)
+    return ans
+
+T=int(input())
+
+for t in range(0,T):
+    n,m=map(int,input().split(" "))
+    left=n-m
+    right=n+m
+    
+   
+    if(left<0):
+        left=0
+    
+    result = bitwise_range_or(left, right)  # Corrected the function call
+    print(result)
+```
+
+Also, I changed the range in the for loop to `range(0,x+1)` because you are already adding 1 when calculating `x`.

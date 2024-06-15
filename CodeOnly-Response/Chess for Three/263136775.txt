@@ -1,0 +1,27 @@
+I can help you with that. Your code seems to be correct for the most part, but there are a few things that could improve it.
+
+Firstly, your function `chess_for_three` doesn't return anything, so I added some `return`s at the end of each condition. This way, you're sure what your function will return in any given situation.
+
+Secondly, your print statements were printing directly to the console without being wrapped in a function call (like `print()`). In Python 3.x, the `print` statement is actually a function, so it needs parentheses around its arguments. 
+
+Lastly, you don't need to convert the result of `(p1+p2+p3)/2` back into an integer if you're sure that it will be an integer (like when the sum of the three numbers is even). In Python 2.x, the `/` operator does integer division, which means it rounds down to the nearest whole number. But in Python 3.x, the `/` operator performs floating point division, so it's better to use `//` for integer division.
+
+Here's your corrected code:
+
+```
+def chess_for_three(p1, p2, p3):
+    if (p1+p2+p3)%2:
+        return -1
+    elif((p1+p2)<=p3):
+        return p1+p2
+    else:
+        return int((p1+p2+p3)//2)
+
+
+num=int(input())
+for i in range(num):
+    p1=int(input())
+    p2=int(input())
+    p3=int(input())
+    print(chess_for_three(p1, p2, p3))
+```

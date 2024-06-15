@@ -1,0 +1,18 @@
+I can help with that! The issue is that the code doesn't correctly handle the case where `x` and `y` are equal. In Python, the `if` statement will still execute when `x == y`, because this condition is technically true.
+
+Here's a fixed version of your code:
+
+```Python
+t = int(input())
+
+for i in range(t):
+    x, y = map(int, input().split())
+    if x < y:
+        print(f"{x} {y}")
+    else:
+        print(f"{y} {x}")
+```
+
+I've also added a `f-string` formatting for the print statement. This is a more readable and Pythonic way to format strings.
+
+Note that I changed the range from `range(t+1)` to `range(t)`. The input variable `t` is already initialized with an integer value, so you should use it directly in your range function without adding 1 to it.

@@ -1,0 +1,15 @@
+The problem with your code is that you have a typo in the line where you're getting the input. It should be `input()` instead of `intput()`. Here's the corrected code:
+
+```python
+n = int(input())
+x = 0
+for i in range(n):
+    st = input()
+    if st[1] == '+':
+        x += 1
+    else:
+        x -= 1
+print(x)
+```
+
+Now, this code will work correctly as long as the inputs are strings that always have at least two characters. If the input string has less than two characters, it will raise an error because you're trying to access the second character (index 1) of a string that is shorter than that.

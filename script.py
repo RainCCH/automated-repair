@@ -16,6 +16,7 @@ def generate_hint(categories):
     return hint
 
 def response_codeonly(content):
+    content = "This code is buggy. Can you help me fix the code?\n\n" + content
     response = ollama.chat(
         model="Llama3",
         messages=[

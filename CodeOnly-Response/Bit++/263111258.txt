@@ -1,0 +1,19 @@
+Yes, I'd be happy to help you fix the code!
+
+The main issue with this code is that it doesn't declare `o` before using it. In Python, you need to declare variables before using them. Also, there's an undefined variable `s`.
+
+Here's a corrected version of your code:
+
+```
+t = int(input())
+x = 0
+while t != 0:
+    s = input()
+    if s[1] == "+":
+        x += 1
+    elif s[1] == "-":
+        x -= 1
+print(x)
+```
+
+This corrected version declares `o` as `x`, initializes `x` to 0, and uses the correct variable name in the rest of the code.

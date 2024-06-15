@@ -1,0 +1,21 @@
+The issue with your code is that the condition in the `if` statement is incorrect. You are using the `and` keyword to check two conditions, but you need to use parentheses to group these conditions correctly.
+
+Here's the corrected code:
+
+```Python
+t = int(input())
+def solve():
+    n = int(input())
+    m = int(input())
+    x = (m+n) % 2
+    if ((x==0) and (m>n)):
+        print("YES")
+    else:
+        print("NO")
+
+while (t>0):
+    solve()
+    t = t-1
+```
+
+In this code, we are checking two conditions: `x == 0` and `m > n`. The first condition checks if the sum of `n` and `m` is even. The second condition checks if `m` is greater than `n`. If both conditions are true, then we print "YES", otherwise we print "NO".

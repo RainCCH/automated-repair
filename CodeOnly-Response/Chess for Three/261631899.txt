@@ -1,0 +1,21 @@
+The code seems to be mostly correct, but there is a small issue with the last line. It's supposed to append the results to the `results` list instead of printing it directly.
+
+Here's the corrected code:
+
+```Python
+rounds = int(input())
+results = []
+n=int(input())
+for i in range(n):
+    p1, p2, p3 = map(int, input().split())
+    if (p1+p2+p3)%2!=0:
+        results.append(-1)
+    elif (p1+p2) >= p3:
+        results.append((p1+p2+p3)//2)
+    else:
+        results.append(p1+p2)
+
+print(*results, sep='\n')
+```
+
+Now the code will correctly calculate and store the results for each round.

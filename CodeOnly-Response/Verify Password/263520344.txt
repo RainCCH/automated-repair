@@ -1,0 +1,45 @@
+The problem with your code is that it's not correctly handling the case when a number is composed of multiple digits. For example, if the input string is "123", your code will print 'NO' because it sees a digit followed by another digit.
+
+Here's a corrected version of your code:
+
+```Python
+def solve():
+    n = int(input())
+    s = input()
+    
+    num = []
+    alp = []
+    
+    if s != s.lower():
+        print('NO')
+        
+        return
+    
+    for i in range(n):
+        c = s[i]
+        
+        if c.isdigit():
+            temp_num = ''
+            
+            while i < n and c.isdigit():
+                temp_num += c
+                i += 1
+                if i < n:
+                    c = s[i]
+                
+            num.append(int(temp_num))
+        else:
+            alp.append(c)
+    
+    if (num == sorted(num)) and (alp == sorted(alp)):
+        print('YES')
+    else:
+        print('NO')
+
+
+if __name__ == '__main__':
+    for test in range(int(input())):
+        solve()
+```
+
+This version of the code will correctly handle numbers that are composed of multiple digits. It does this by using a while loop to keep reading digits as long as it finds them, and then adding the number to the list.

@@ -1,0 +1,7 @@
+I'd be happy to help you fix your code. However, I need more information about the code and the issue you're experiencing. Please provide the following details:
+
+1. The programming language(s) used in the code.
+2. The exact error message or behavior you're seeing that indicates the code is buggy.
+3. A brief description of what the code is supposed to do.
+
+Once I have this information, I'll do my best to help you identify and fix the issue.

@@ -1,0 +1,18 @@
+I'd be happy to help you fix the code. Here's what I found:
+
+1. The inner `for` loop is printing each element of `q`, but it should be printing the elements of `p`. So, change the inner `for` loop to `for x in range(len(p)):`.
+2. The outer `print(x, end='')` statement inside the second `for` loop will print the indices of the elements in `p`, not their values. If you want to print the actual values of `p`, remove the `x` variable and just print each element: `print(p[x], end='')`.
+
+Here's the corrected code:
+```python
+for _ in range(int(input())):
+    n = int(input())
+    p = list(map(int, input().split()))
+    q = []
+    for x in range(1, n//2+1):
+        q.append(x)
+        q.append(n+1-x)
+    for x in range(len(p)):
+        print(p[x], end='')
+```
+This should fix the code! Let me know if you have any further issues.

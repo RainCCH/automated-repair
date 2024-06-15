@@ -1,0 +1,31 @@
+The issue with this code is that it's not handling the case where `r` is less than or equal to `l`. In such cases, the maximum score should be `r`, but currently it returns `l`.
+
+Here's the corrected code:
+
+```Python
+def max_score(l, r):
+    return min(r // l, r)
+
+
+def solve():
+    data = input().split()
+
+    t = int(data[0])
+    results = []
+    index = 1
+    for _ in range(t):
+        l = int(data[index])
+        r = int(data[index + 1])
+        index += 2
+        # Calculate the maximum score
+        results.append(max_score(l, r))
+
+    for result in results:
+        print(result)
+
+
+if __name__ == "__main__":
+    solve()
+```
+
+This code now correctly calculates the maximum possible score by taking the minimum of `r // l` (integer division) and `r`. This is because you can at most take `r` candies, but if there are less than `l` candies left, then you can only take what's left.

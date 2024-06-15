@@ -1,0 +1,49 @@
+I'd be happy to help you fix the code. Here's a corrected version:
+
+```Python
+n=int(input())
+for _ in range(n):
+    p=int(input())
+    count=0
+    l1=list(map(int,input().split()))
+    l2=list(map(int,input().split()))
+    if(l1==l2):
+        print(0)
+    else:
+        l1s=l1
+        l2s=l2
+        l1s.sort()
+        l2s.sort()
+        j=0
+        k=0
+        while k < len(l2s):
+            if j >= len(l1s):                                   
+                count+=abs(l2s[k]-l1s[j-1])
+                k+=1
+            elif l1s[j] != l2s[k]:
+                if(len(l1s) > len(l2s)):
+                    for i in range(j, len(l1s)):
+                        count+=1
+                        break
+                elif len(l1s) < len(l2s):
+                    for i in range(k, len(l2s)):
+                        count+=1
+                        break
+                count+=abs(l1s[j] - l2s[k])
+                j+=1
+            else:
+                j+=1
+                k+=1
+        for i in range(len(l1)):
+            if l1[i] != l2[i]:
+                count+=1
+        print(count)
+```
+
+The main issues with your code were:
+
+- In the while loop, you were not handling the case where `l1s[j]` is less than `l2s[k]`. You also weren't correctly counting the differences.
+
+- You were not correctly incrementing `k` in the while loop. 
+
+- The for loop at the end was not necessary. It could be replaced with a simpler condition inside the while loop.
