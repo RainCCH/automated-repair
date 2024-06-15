@@ -1,0 +1,15 @@
+The bug in this code is likely to be within the category "SyntaxError: Invalid Syntax" or "TypeError: Wrong Variable Type". The error occurs because you are trying to print a variable `Yes` and `No` without using `print()` function.
+
+Here's the fixed version of your code:
+
+```Python
+n,m = input().split(" ")
+n,m = int(n) , int(m)
+if n >= 1 and m <= 100:
+    if n >= m:
+        print("Yes")
+    else:
+        print("No")
+```
+
+In this corrected version, I have used `print()` function to print the values of `Yes` and `No`. Now the code should run without any errors.

@@ -1,0 +1,18 @@
+The error in this code is that it's not considering the case when `x` and `y` are equal. The condition `if x<y:` will be true for both `x<y` and `y<x`. So, we need to add another condition to check if `x==y`.
+
+Here's the fixed version of the code:
+
+```
+t = int(input())
+
+for _ in range(t):
+    x, y = map(int, input().split())
+    if x < y:
+        print(x, " ", y)
+    elif x == y:
+        print(x, " ", y)
+    else:
+        print(y, " ", x)
+```
+
+In this code, I've also added an underscore `_` to the loop variable `i`, as it's a conventional practice in Python to use a single-letter variable like `_` when you don't plan to use the variable itself.

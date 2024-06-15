@@ -1,0 +1,16 @@
+The error in your code is that you are trying to assign the value of `c` back to `x` and then to `y`, which does not make sense. It seems like you want to swap the values of `x` and `y` if `x > y`. Here's a corrected version:
+
+```
+t = int(input())
+
+for i in range(t):
+    x = int(input())
+    y = int(input())
+    
+    if x > y:
+        x, y = y, x  # Swap the values of x and y
+    
+    print(str(x) + " " + str(y))
+```
+
+In this corrected code, `x, y = y, x` is a Pythonic way to swap the values of two variables.

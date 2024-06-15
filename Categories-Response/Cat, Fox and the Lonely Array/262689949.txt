@@ -1,0 +1,41 @@
+The error is likely a `ValueError` because the `min()` function returns `None` if the list is empty. This could happen when the length of `lst` is less than or equal to 2.
+
+Here's the fixed version:
+
+```Python
+def find_permutation(lst, m):
+    list1 = lst[1:-1]
+    if len(list1) == 0:
+        return []
+    min_el = min(list1)
+    list1.remove(min_el)
+    list_max = list1[::2]
+    list_min = [lst[0]] + list1[1::2] + [lst[-1]]
+    list_max.sort()
+    list_min.sort(reverse=True)
+    func = {}
+    func[min_el] = m + 1
+    j = 2 * m
+    for el in list_max:
+        if not (el in func):
+            func[el] = j
+            j -= 1
+    j = 1
+    for el in list_min:
+        if not (el in func):
+            func[el] = j
+            j += 1
+    res = []
+    for key in lst:
+        res.append(func.get(key, -1))
+    return res 
+
+t = int(input())
+for _ in range(t):
+    m = int(input()) // 2
+    start = [int(x) for x in input().split()]
+    res = find_permutation(start, m)
+    print(*res)
+```
+
+This code first checks if the `list1` is empty before calling `min()`. It also uses `get()` to return a default value of -1 if the key is not found in the dictionary. This prevents `KeyError` when printing the result.

@@ -1,0 +1,22 @@
+The error is within the TypeError category. The issue arises because of the variable `a` which is supposed to be an integer but it is being used as a list index, which will result in a TypeError.
+
+Here's the fixed code:
+
+```Python
+n = int(input())
+
+for i in range(n):
+    a = int(input())
+    b = list(map(int, input().split()))
+    x = sorted(b)
+    
+    for _ in range(a):
+        b.insert(0, b.pop())
+        if b==x:
+            print("yes")
+            break
+    else:
+        print("no")
+```
+
+This fixed code will work correctly by inserting the last element of list `b` at the beginning and removing it from the end. This simulates rotating the list to the right. The condition inside the loop checks if the rotated list is equal to the sorted list. If it is, then it prints "yes" and breaks out of the loop. If not after a full rotation, then it prints "no".

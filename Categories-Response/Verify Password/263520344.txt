@@ -1,0 +1,36 @@
+The error is within the category `IndexError: Array Index Out of Bounds`. The issue arises when you try to access an index that does not exist. In your case, it happens when `i < n and (s[i].isdigit() == False and s[i + 1].isdigit() == True)` because `i+1` might be greater than or equal to `n`, which would lead to an error.
+
+Here's the corrected code:
+
+```
+def solve():
+    n = int(input())
+    s = input()
+    num = []
+    alp = []
+    
+    if s != s.lower():
+        print('NO')
+        
+        return
+    
+    for i in range(n):
+        c = s[i]
+        
+        if c.isdigit():
+            num.append(int(c))
+        else:
+            alp.append(c)
+    
+    if (num == sorted(num)) and (alp == sorted(alp)):
+        print('YES')
+    else:
+        print('NO')
+        
+        
+if __name__ == '__main__':
+    for test in range(int(input())):
+        solve()
+```
+
+The fix is to only iterate through the string `s` once, without trying to access an index that might be out of bounds.

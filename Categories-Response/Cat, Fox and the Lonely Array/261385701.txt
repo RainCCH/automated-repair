@@ -1,0 +1,62 @@
+The error in this code is likely to be a TypeError. The issue arises from the fact that `inp()` and `out()` are not functions, but rather variables that hold function objects.
+
+Here's the corrected version of your code:
+
+```Python
+import sys
+
+inp = lambda: int(input())
+out = lambda x: print(x)
+
+t = inp()
+
+ar2 = [0] * (10**5)
+
+
+def findMaxDist(n):
+    i = -1
+    d = 0
+    md = 1
+    while i < n:
+        d += 1
+        i += 1
+        if ar2[i]:
+            md = max(md, d)
+            d = 0
+
+    return max(md, d)
+
+
+for _ in range(t):
+    n = inp()
+    ar = list(map(int, input().split()))
+    maxDist = 1
+
+    for i in range(20):
+        a = 2**i
+        br = True
+        ig = True
+        for j in range(n):
+            ar2[j] = ar[j] & a
+            if ar2[j]:
+                ig = False
+            if ar[j] >= a:
+                br = False
+        if br:
+            break
+        if ig:
+            continue
+        maxDist = max(findMaxDist(n), maxDist)
+
+    out(maxDist)
+```
+
+The main changes are:
+
+1. The `inp()` and `out()` variables have been replaced with lambda functions.
+
+2. The `input()` function has been used to read the input instead of trying to use the non-existent `sys.stdin.readline` and `sys.stdout.write`.
+
+3. The line where you calculate `maxDist` has been moved inside the loop, so that it gets updated for each possible maximum distance.
+
+4. The last line where you print `maxDist` now uses the lambda function `out()`.

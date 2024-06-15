@@ -1,0 +1,21 @@
+The error in your code is a syntax error. The line `if(x==0) and (m>n):` should be changed to `if x == 0 and m > n:` because Python uses indentation to denote block-level structure, such as if/else statements.
+
+Here's the fixed version of the code:
+
+```
+t = int(input())
+def solve():
+    n = int(input())
+    m = int(input())
+    x = (m+n) % 2
+    if x == 0 and m > n:
+        print("YES")
+    else:
+        print("NO")
+
+while t > 0:
+    solve()
+    t -= 1
+```
+
+I also changed `t = t-1` to `t -= 1`, which is the standard way in Python to decrement a variable.

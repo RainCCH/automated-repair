@@ -1,0 +1,19 @@
+The error is in the line `l.append=input()` which should be `l.append(input())`. You missed the parentheses.
+
+Here's the fixed version:
+
+```
+n=int(input())
+l=[]
+c=0
+for i in range(n):
+    l.append(input())
+for i in l:
+    if i=="++x" or i=="x++":
+        c+=1
+    else:
+        c-=1
+print(c)
+```
+
+Explanation: The `input()` function without parentheses returns a file object, not the input string. That's why you're getting an error.

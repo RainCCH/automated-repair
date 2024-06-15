@@ -1,0 +1,19 @@
+A classic bug!
+
+The error is a `NameError: Undefined Variable`. The variable `intput` should be replaced with the correct function name, which is `input`.
+
+Here's the fixed code:
+
+```
+n = int(input())
+x = 0
+for i in range(n):
+    st = input()
+    if st[1] == '+':
+        x += 1
+    else:
+        x -= 1
+print(x)
+```
+
+Now, it should work correctly!

@@ -1,0 +1,28 @@
+The error is likely a TypeError because the input() function returns a string, not an integer. To fix this, we need to convert the input to an integer using int(). Here's the fixed code:
+
+```Python
+try:
+    a=int(input())
+    for i in range(a):
+        b=list(map(int,input().split(' ')))
+        ma=0
+        s=b[0]+b[1]+b[2]
+        if s%2==1:
+            print("-1")
+            continue
+        if b[0]==b[1]==b[2]:
+            print(str(s/2))
+            continue
+        while 0 in b:
+            b.remove(0)
+        while(len(b)>1):
+            ma+=min(b)
+            b[b.index(max(b))]-=min(b)
+            b.remove(0)
+            b.remove(min(b))
+        print(str(ma))
+except Exception as e:
+    print("Error: ", str(e))
+```
+
+This code adds a try-except block to catch any exceptions that may occur during the execution of the code. The `Exception as e` part allows us to capture and print any error message that occurs.

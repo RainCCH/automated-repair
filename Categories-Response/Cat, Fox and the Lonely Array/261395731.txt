@@ -1,0 +1,28 @@
+The error is likely a `NameError: Undefined Variable` because the variable `_` is used in the last loop without being defined. The fixed version of the code should be:
+
+```Python
+tc = int(input())
+for _ in range(tc):
+    prev_position = [-1]*20
+    n = int(input())
+    pos_diff = [-1]*20
+ 
+    arr = []
+    given = input().split()
+    for i in range(n):
+        arr.append(int(given[i])) # changed here
+    for i,num in enumerate(arr):
+        for pos in range(20):
+            if((num>>pos) & 1 ==1):
+                pos_diff[pos] = max(pos_diff[pos],i-prev_position[pos])
+                prev_position[pos] = i
+    ans = 1
+    for i in range(n): # removed the unnecessary _
+      if(prev_position[i]!=-1):
+        pos_diff[i]= max(pos_diff[i],n-prev_position[i])
+        ans = max(ans,pos_diff[i])
+    ans = ans if ans !=-1 else 1
+    print(ans)
+```
+
+The issue was that you were using `_` in the last loop, but not defining it anywhere. I removed the unnecessary `_` and also changed `arr.append(int(given[_]))` to `arr.append(int(given[i]))`.

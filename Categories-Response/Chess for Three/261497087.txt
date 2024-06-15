@@ -1,0 +1,22 @@
+The error in the code is likely a TypeError, specifically "Wrong Variable Type". This is because you are trying to iterate over the result of `input()` which is expected to be an integer, but it's not.
+
+Here's the corrected version:
+
+```Python
+n = int(input())
+for _ in range(n):
+    a,b,c = map(int,input().split())
+    if (a+b+c)%2!=0:
+        print(-1)
+    else:
+        cur = sorted([a, b, c])
+        ans = 0
+        while cur[1] > 0:
+            ans += 1
+            cur[1] -= 1
+            cur[2] -= 1
+            cur = sorted(cur)
+        print(ans)
+```
+
+In this corrected version, I first read the number of test cases as an integer using `int(input())`. Then, in the for loop, I used `_` to ignore the variable and simply iterate `n` times.

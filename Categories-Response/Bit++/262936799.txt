@@ -1,0 +1,18 @@
+The error is that the variable `y` is not defined before using it in a for loop. 
+
+Here's the fixed code:
+
+```Python
+y = int(input("Enter a value for y: "))
+e=0
+for i in range(y):
+    u=list(str(x) for x in input("").split())
+    for j in u:
+        if j == "++X" or j=="X++":
+            e+=1
+        elif j== "--X" or j=="X--":
+            e-=1
+print(e)
+```
+
+In this code, I'm asking the user to enter a value for `y` before using it in the for loop. This way, you won't get an error when trying to use `y` without defining it first.

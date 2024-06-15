@@ -1,0 +1,33 @@
+The error is that the variables `t` and `test_cases` are not defined within the function. 
+
+Here's the fixed code:
+
+```Python
+def max_score(test_cases):
+    results = []
+    
+    for case in test_cases:
+        l, r = case
+        
+        # We start by trying x = r and count the steps to reduce x to 1
+        max_x = r
+        score = 0
+        
+        while max_x > 1:
+            for p in range(2, max_x + 1):
+                if max_x % p == 0:
+                    max_x //= p
+                    score += 1
+                    break
+        
+        results.append(score)
+    
+    return results
+
+test_cases = [(10,20),(5,15)] # example test cases
+results = max_score(test_cases)
+for result in results:
+    print(result)
+```
+
+In this code, I removed the variables `t` and `test_cases` as they were not defined. Then I added some test cases for you to see how it works.

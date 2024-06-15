@@ -1,0 +1,25 @@
+The code is having a ZeroDivisionError, which means it's trying to divide by zero. This error occurs in the line `if not i:` when `i` is 0.
+
+Here's the fixed version of the code:
+
+```
+for _ in range(int(input())):
+    l = list(bin(int(input()))[2:])
+    for i in range(len(l)-1):
+        if not l[i] == '0' and not l[i+1] == '0':
+            if i:  # changed this line
+                l[i-1],l[i] = ['1','0']
+                if l[i+1]=='1':
+                    l[i+1] = '0'
+                else:
+                    l[i+1] = '-1'
+            else:
+                if l[i+1]=='1':
+                    l[i+1] = '0'
+                else:
+                    l[i+1] = '-1'
+    print(len(l))
+    print(*l[::-1])
+```
+
+The issue was that when `i` is 0, you were trying to access `l[-1]`, which doesn't exist (since indexing starts at 0 and the list has only one element).

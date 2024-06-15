@@ -1,0 +1,17 @@
+The error in your code is a `NameError: Undefined Variable`. This is because you are using the variable `o` before it's defined. 
+
+Here is the fixed version of your code:
+
+```
+t=int(input())
+x=0  # Initialize x to 0
+while t!=0:
+    s=input()
+    if s[1]=="+":
+        x=x+1
+    elif s[1]=="-":
+        x=x-1
+print(x)
+```
+
+In this fixed version, I initialized `x` to 0 before the loop starts. This way, you can start using `x` without getting a `NameError`.

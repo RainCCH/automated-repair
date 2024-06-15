@@ -1,0 +1,18 @@
+The error in this code is likely a TypeError, as the variable `choice` is being used to index into an array (in Python, arrays are just lists), but it's not actually a list. 
+
+In addition, there seems to be some confusion about what you're trying to accomplish with your program. You're asking for input and then checking if each number can be divided by any of the numbers from 2 up to that number itself. If it can be divided, you print the quotient.
+
+Here's a fixed version of the code:
+
+```Python
+t = int(input())
+for _ in range(t):
+    n1 = int(input())
+    n2 = int(input())  
+    for c in range(2,n2):
+        if n2%c==0:
+            print(c)
+            break
+```
+
+This code does exactly what you described: it takes two numbers as input, checks each number to see if it can be divided by any of the numbers from 2 up to that number itself, and prints the first divisor it finds.

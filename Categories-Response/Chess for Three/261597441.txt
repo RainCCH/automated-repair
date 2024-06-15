@@ -1,0 +1,31 @@
+The error in the code is a TypeError. The issue arises from this line: `spectetor = arr[i]`. Here, `arr` is a list and `i` is an integer index. You can't assign an integer to a string.
+
+Here's the corrected version of your code:
+
+```
+def main():
+    n = int(input())
+    arr = [1, 2, 3]
+    spectator = 0
+    winner = 0
+    end = "YES"
+    
+    while n != 0:
+        winner = int(input())
+        if winner != spectator:
+            for i in range(3):
+                if arr[i] != winner and arr[i] != spectator:
+                    spectator = arr[i]
+                    break
+        else:
+            end = "NO"
+            break
+        n -= 1
+    
+    print(end)
+
+if __name__ == "__main__":
+    main()
+```
+
+In this corrected version, I changed the name of `spectetor` to `spectator`. This is because `spectetor` was initially initialized as a string (`3`).

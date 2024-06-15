@@ -1,0 +1,32 @@
+The bug is likely to be within the "IndexError: Array Index Out of Bounds" category. This is because you are trying to access elements at `index` and `index + 1` without checking if these indices are within the bounds of the list `data`.
+
+Here's a fixed version of your code:
+
+```python
+def max_score(l, r):
+    return min(r // l, l)
+
+
+def solve():
+    data = input().split()
+
+    t = int(data[0])
+    results = []
+    index = 1
+    for _ in range(t):
+        if index + 1 >= len(data): 
+            break  # Check if there are enough elements left in the list
+        l = int(data[index])
+        r = int(data[index + 1])
+        index += 2
+        results.append(max_score(l, r))
+
+    for result in results:
+        print(result)
+
+
+if __name__ == "__main__":
+    solve()
+```
+
+In this fixed version, I added a check before trying to access elements at `index` and `index + 1`. If there are not enough elements left in the list, it breaks out of the loop. This prevents an "IndexError: Array Index Out of Bounds" from occurring.

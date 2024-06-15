@@ -1,0 +1,20 @@
+The bug in this code is that it does not handle the case where `val` has less than 2 elements. This can happen if the input string `a` does not contain a space. In such cases, when you try to access `val[1]`, you will get an `IndexError`.
+
+Here's a fixed version of your code:
+
+```python
+import math
+
+t = int(input())
+while(t>0):
+    a=(input())
+    val=a.split(' ')
+    if len(val) >= 2:
+        b=int(val[1])
+        print(int(math.log2(b)))
+    else:
+        print("Invalid input. Please enter the correct format.")
+    t -= 1
+```
+
+This code checks the length of `val` before trying to access its second element, and prints an error message if the input is invalid.

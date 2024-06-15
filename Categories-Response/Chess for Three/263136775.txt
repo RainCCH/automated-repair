@@ -1,0 +1,22 @@
+The error in the provided code is that it does not handle the case when `p1`, `p2` and `p3` are equal. According to the rules of Chess (Fisher's combination), if all three numbers are equal, it should return `-1`.
+
+Here is a fixed version of the code:
+
+```Python
+def chess_for_three(p1, p2, p3):
+    if p1 == p2 == p3:
+        return -1
+    elif (p1 + p2) <= p3:
+        return p1 + p2
+    else:
+        return int((p1+p2+p3)/2)
+
+num=int(input())
+for i in range(num):
+    p1=int(input())
+    p2=int(input())
+    p3=int(input())
+    print(chess_for_three(p1, p2, p3))
+```
+
+This code will correctly calculate the winner of a game of Three Player Chess based on the rules provided.

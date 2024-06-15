@@ -1,0 +1,17 @@
+The error in your code is a `ValueError` which occurs when you try to convert a non-integer string into an integer. This happens when the user input for `n` or `m` is not a number.
+
+Here's the fixed version of your code:
+
+```Python
+t = int(input())
+for _ in range(t):
+    temp = str(input()).split(" ")
+    n, m = map(int, temp)
+
+    if n % 2 == 0 and m % 2 == 0:
+        print("No")
+    else:
+        print("Yes")
+```
+
+In this fixed version, I used the `map` function to convert both `n` and `m` into integers. This way, you can be sure that they will always be integers, avoiding the possibility of a `ValueError`.

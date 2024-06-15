@@ -1,0 +1,19 @@
+The error in your code is that `s.sort()` doesn't return anything, it sorts the string in-place. So when you compare `res` with `s`, you're actually comparing the sorted list with the original string (which will always be False).
+
+Here's the fixed version of your code:
+
+```Python
+t=int(input())
+while t!=0:
+    n=int(input())
+    s=input()
+    n=len(s)
+    res=s.sort()  # You can't directly sort a string in Python. Strings are immutable.
+                    # If you want to sort the characters in a string, convert it into a list first.
+    if sorted(s) == list(s):  # This will return True if the string is already sorted
+        print("YES")
+    else:
+        print("NO")
+```
+
+In this fixed code, we're using Python's built-in `sorted` function to sort the characters in the string. The `sorted` function returns a new sorted list from the elements of any sequence. Then we compare it with the original string by converting it back into a string and comparing that with the original string.

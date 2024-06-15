@@ -1,0 +1,40 @@
+The error is within the category "TypeError: Wrong Variable Type".
+
+The issue lies in this line:
+
+```
+x=binary_string.split("")
+```
+
+You are trying to split a string (`binary_string`) into substrings using an empty string `""`, which is incorrect. The correct way to split a string into individual characters is by splitting it with the character itself, or by using a list comprehension.
+
+Here's the fixed version of your code:
+
+```Python
+def integer_to_binary(x):
+    if x == 0:
+        return "0"
+    
+    binary_digits = []
+    while x > 0:
+        remainder = x % 2
+        binary_digits.append(str(remainder))
+        x = x // 2
+    
+    # Reverse the list of binary digits to get the correct binary representation
+    binary_digits.reverse()
+    
+    # Join the list to form a string
+    binary_string = ''.join(binary_digits)
+    
+    print(len(binary_string))
+    for char in binary_string:
+        print(char)
+
+t=int(input())
+for i in range(t):
+    x=int(input())
+    integer_to_binary(x)
+```
+
+I have also fixed the last line of your code. Instead of splitting `binary_string` into individual characters, I am iterating over each character in `binary_string` and printing it.

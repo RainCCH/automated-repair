@@ -1,0 +1,17 @@
+The error in your code is a TypeError. This is because you are trying to subtract from `X` which hasn't been defined, you have defined `x`. Also, the variable names are case sensitive.
+
+Here's the fixed version of your code:
+
+```
+n = int(input())
+x = 0
+for i in range(n) :
+    st = input()
+    if st[1] == "+":
+        x += 1
+    else:
+        x -= 1
+print(x)
+```
+
+This code will work as long as the second character of each input string is either "+" or "-". If there's anything other than that, it will throw an IndexError.

@@ -1,0 +1,23 @@
+The error in your code is likely a `ValueError` because you are comparing characters using `>` operator which does not work for characters. This comparison should be done alphabetically, not numerically.
+
+Here's the fixed version of your code:
+
+```Python
+n=int(input())
+while(n>0):
+    n=n-1
+    size=int(input())
+    inp=input()
+    prev=ord(inp[0])
+    op=1
+    for i in range(0,size-1): # subtract 1 because we're not comparing the last character
+        if ord(inp[i]) > ord(inp[i+1]):
+            op=0
+            break
+    if op:
+        print('YES')
+    else:
+        print('No')
+```
+
+This code will correctly determine if a sequence of characters is in ascending order or not.

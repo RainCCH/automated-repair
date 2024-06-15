@@ -1,0 +1,46 @@
+The error in your code is likely to be a `TypeError` because of the line `count+=abs(l1s-l2s[j])`. This line attempts to calculate the absolute difference between two lists, which is not possible. The correct way to do this would be to iterate over both lists and find the maximum absolute difference.
+
+Here's the corrected code:
+
+```Python
+n = int(input())
+for _ in range(n):
+    p = int(input())
+    count = 0
+    l1 = list(map(int, input().split()))
+    l2 = list(map(int, input().split()))
+    
+    if(l1 == l2):
+        print(0)
+    else:
+        l1.sort()
+        l2.sort()
+        
+        j = k = 0
+        
+        while(k < len(l2)):
+            if j >= len(l1):                                   
+                count += len(l1) - j                           
+                break                                      
+            if l1[j] != l2[k]:
+                if(len(l1) > len(l2)):
+                    count += len(l1) - k - 1                
+                elif(len(l2) > len(l1)):
+                    count += len(l2) - j - 1
+                
+                while(j < len(l1) and l1[j] <= l2[k]):
+                    j+=1
+                if(j >= len(l1)):  
+                    break
+                k+=1
+            else:
+                j+=1
+                k+=1
+        
+        for i in range(len(l1)):
+            if l1[i] != l2[i]:
+                count += 1
+        
+        print(count)
+```
+This code will correctly calculate the minimum number of operations required to transform one list into another.
